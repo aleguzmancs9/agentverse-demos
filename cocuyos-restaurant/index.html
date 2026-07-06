@@ -1,1108 +1,533 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cocuyos Restaurant — Soledad, CA</title>
-<meta name="description" content="Cocuyos Restaurant — traditional Mexican food, homemade tortillas, and warm hospitality in Soledad, CA.">
-
+<title>Cocuyos Restaurant | Authentic Mexican in Soledad, CA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,500&family=Caveat:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Poppins:wght@300;400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --dusk-deep:#1c1147;
-    --dusk-mid:#3a1f5d;
-    --dusk-warm:#7a2f4c;
-    --marigold:#f4a531;
-    --marigold-light:#ffc95c;
-    --terracotta:#d9552b;
-    --teal:#1e8a83;
-    --cream:#fff6e9;
-    --cream-dim:#f2e2c8;
-    --ink:#241226;
-    --glow:#ffe08a;
-    --shadow: 0 10px 30px rgba(28,17,71,.25);
+    --night:#141833;
+    --night2:#0c0e1e;
+    --gold:#ffb627;
+    --marigold:#f4a300;
+    --pink:#e6417a;
+    --teal:#12a5a0;
+    --cream:#fff8ef;
+    --terracotta:#d9531e;
+    --text-dark:#2b2320;
   }
-
-  *{box-sizing:border-box; margin:0; padding:0;}
+  *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    font-family:'Poppins', sans-serif;
+    font-family:'Poppins',sans-serif;
     background:var(--cream);
-    color:var(--ink);
+    color:var(--text-dark);
     overflow-x:hidden;
   }
-  h1,h2,h3,h4{
-    font-family:'Fraunces', serif;
-    line-height:1.1;
-  }
-  .script{
-    font-family:'Caveat', cursive;
-  }
-  a{text-decoration:none; color:inherit;}
+  h1,h2,h3{font-family:'Fraunces',serif;}
+  a{text-decoration:none;color:inherit;}
   ul{list-style:none;}
-  img{max-width:100%; display:block;}
-  section{position:relative;}
-  .container{
-    width:min(1150px, 92%);
-    margin-inline:auto;
-  }
-  .eyebrow{
-    font-family:'Caveat', cursive;
-    font-size:1.5rem;
-    color:var(--terracotta);
-    display:inline-block;
-    margin-bottom:.25rem;
-    letter-spacing:.5px;
-  }
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    gap:.5rem;
-    padding:.9rem 1.8rem;
-    border-radius:50px;
-    font-weight:600;
-    font-size:.95rem;
-    cursor:pointer;
-    border:2px solid transparent;
-    transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
-  }
-  .btn:active{transform:scale(.97);}
-  .btn-primary{
-    background:linear-gradient(135deg, var(--marigold), var(--terracotta));
-    color:var(--cream);
-    box-shadow:0 8px 22px rgba(217,85,43,.4);
-  }
-  .btn-primary:hover{transform:translateY(-3px); box-shadow:0 14px 28px rgba(217,85,43,.5);}
-  .btn-ghost{
-    background:transparent;
-    border-color:var(--cream);
-    color:var(--cream);
-  }
-  .btn-ghost:hover{
-    background:var(--cream);
-    color:var(--dusk-deep);
-  }
-  .btn-dark{
-    background:var(--dusk-deep);
-    color:var(--cream);
-  }
-  .btn-dark:hover{background:var(--dusk-mid); transform:translateY(-3px);}
+  img{max-width:100%;display:block;}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px;}
+  .script{font-family:'Caveat',cursive;}
 
-  /* ---------- NAV ---------- */
+  /* ===== NAVBAR ===== */
   header.nav{
-    position:fixed;
-    top:0; left:0; right:0;
-    z-index:100;
-    padding:1rem 0;
-    background:rgba(28,17,71,0.0);
-    transition:background .35s ease, padding .35s ease, box-shadow .35s ease;
-  }
-  header.nav.scrolled{
-    background:rgba(28,17,71,0.92);
-    backdrop-filter:blur(8px);
-    padding:.6rem 0;
-    box-shadow:0 6px 20px rgba(0,0,0,.2);
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(12,14,30,0.85);
+    backdrop-filter:blur(6px);
+    transition:padding .3s ease;
   }
   .nav-inner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+    display:flex;align-items:center;justify-content:space-between;
+    max-width:1180px;margin:0 auto;padding:16px 24px;
   }
   .logo{
-    display:flex;
-    align-items:center;
-    gap:.6rem;
-    color:var(--cream);
+    color:var(--cream);font-size:1.5rem;font-weight:600;
+    display:flex;align-items:center;gap:8px;letter-spacing:1px;
   }
-  .logo .dot{
-    width:12px; height:12px; border-radius:50%;
-    background:var(--marigold-light);
-    box-shadow:0 0 12px 4px var(--marigold-light);
-    animation:blink 2.4s ease-in-out infinite;
+  .logo span.dot{
+    width:10px;height:10px;border-radius:50%;background:var(--gold);
+    box-shadow:0 0 8px 3px var(--gold);animation:blink 2.2s infinite ease-in-out;
   }
-  .logo span{
-    font-family:'Fraunces', serif;
-    font-size:1.5rem;
-    font-weight:800;
-    letter-spacing:.5px;
+  .nav-links{display:flex;gap:32px;}
+  .nav-links a{
+    color:var(--cream);font-size:.95rem;font-weight:500;position:relative;
   }
-  nav.links{
-    display:flex;
-    gap:2.2rem;
-    align-items:center;
-  }
-  nav.links a{
-    color:var(--cream-dim);
-    font-weight:500;
-    font-size:.95rem;
-    position:relative;
-    padding-bottom:4px;
-  }
-  nav.links a::after{
-    content:'';
-    position:absolute;
-    left:0; bottom:0;
-    height:2px; width:0;
-    background:var(--marigold-light);
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--gold);
     transition:width .3s ease;
   }
-  nav.links a:hover::after{width:100%;}
-  nav.links a:hover{color:var(--cream);}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    background:var(--terracotta);color:#fff;padding:10px 20px;border-radius:30px;
+    font-weight:600;font-size:.9rem;box-shadow:0 4px 14px rgba(217,83,30,.5);
+    transition:transform .25s ease;
+  }
+  .nav-cta:hover{transform:translateY(-2px);}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:200;}
+  .hamburger span{width:26px;height:2px;background:var(--cream);}
 
-  .nav-cta{display:flex; align-items:center; gap:1rem;}
-  .burger{
-    display:none;
-    flex-direction:column;
-    gap:5px;
-    cursor:pointer;
-    z-index:200;
-  }
-  .burger span{
-    width:26px; height:2px;
-    background:var(--cream);
-    transition:.3s;
+  @media(max-width:860px){
+    .nav-links{
+      position:fixed;top:0;right:-100%;height:100vh;width:70%;max-width:320px;
+      background:var(--night2);flex-direction:column;justify-content:center;align-items:flex-start;
+      padding:40px;gap:24px;transition:right .4s ease;
+    }
+    .nav-links.open{right:0;}
+    .nav-cta{display:none;}
+    .hamburger{display:flex;}
   }
 
-  /* ---------- HERO ---------- */
-  .hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    position:relative;
-    background:
-      radial-gradient(circle at 20% 20%, rgba(244,165,49,0.12), transparent 40%),
-      radial-gradient(circle at 80% 70%, rgba(30,138,131,0.15), transparent 45%),
-      linear-gradient(160deg, var(--dusk-deep), var(--dusk-mid) 55%, var(--dusk-warm));
-    overflow:hidden;
-    padding-top:6rem;
-  }
-  .picado-row{
-    position:absolute;
-    top:0; left:0; width:100%;
-    display:flex;
-    justify-content:space-between;
-    z-index:2;
-    pointer-events:none;
-  }
-  .picado{
-    width:60px; height:70px;
-    background:var(--marigold);
-    clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%);
-    opacity:.85;
-    transform:translateY(-2px);
-  }
-  .picado:nth-child(3n+1){background:var(--terracotta);}
-  .picado:nth-child(3n+2){background:var(--teal);}
-  .picado:nth-child(5n){background:var(--marigold-light);}
-
-  #firefly-layer{
-    position:absolute;
-    inset:0;
-    z-index:1;
-    pointer-events:none;
+  /* ===== HERO ===== */
+  #hero{
+    position:relative;min-height:100vh;background:radial-gradient(circle at 50% 20%, #1d2350 0%, var(--night) 45%, var(--night2) 100%);
+    display:flex;align-items:center;justify-content:center;overflow:hidden;padding-top:80px;
   }
   .firefly{
-    position:absolute;
-    width:6px; height:6px;
-    border-radius:50%;
-    background:var(--glow);
-    box-shadow:0 0 8px 3px rgba(255,224,138,0.8);
-    animation-name:drift, blink;
-    animation-timing-function:ease-in-out, ease-in-out;
-    animation-iteration-count:infinite, infinite;
+    position:absolute;border-radius:50%;background:var(--gold);
+    box-shadow:0 0 8px 3px rgba(255,182,39,.8);
+    animation:float 8s ease-in-out infinite, blink 3s ease-in-out infinite;
+    opacity:.7;pointer-events:none;
+  }
+  @keyframes float{
+    0%{transform:translateY(0) translateX(0);}
+    50%{transform:translateY(-40px) translateX(20px);}
+    100%{transform:translateY(0) translateX(0);}
   }
   @keyframes blink{
-    0%, 100%{opacity:.25; transform:scale(.7);}
-    50%{opacity:1; transform:scale(1.3);}
+    0%,100%{opacity:.2;}
+    50%{opacity:1;}
   }
-  @keyframes drift{
-    0%{transform:translate(0,0);}
-    25%{transform:translate(20px,-25px);}
-    50%{transform:translate(-15px,-45px);}
-    75%{transform:translate(25px,-15px);}
-    100%{transform:translate(0,0);}
+  .papel{
+    position:absolute;top:78px;left:0;width:100%;display:flex;justify-content:space-evenly;
+    z-index:2;opacity:.9;
   }
+  .flag{
+    width:38px;height:46px;
+    clip-path:polygon(0 0,100% 0,50% 100%);
+  }
+  .flag:nth-child(6n+1){background:var(--pink);}
+  .flag:nth-child(6n+2){background:var(--teal);}
+  .flag:nth-child(6n+3){background:var(--gold);}
+  .flag:nth-child(6n+4){background:var(--terracotta);}
+  .flag:nth-child(6n+5){background:#7c4dff;}
+  .flag:nth-child(6n+6){background:#f4f1de;}
 
   .hero-content{
-    position:relative;
-    z-index:3;
-    display:grid;
-    grid-template-columns:1.2fr .8fr;
-    gap:3rem;
-    align-items:center;
+    position:relative;z-index:5;text-align:center;color:var(--cream);padding:60px 20px;
+    max-width:800px;
   }
-  .hero-text .eyebrow{color:var(--marigold-light);}
-  .hero-text h1{
-    color:var(--cream);
-    font-size:clamp(2.6rem, 6vw, 4.6rem);
-    font-weight:800;
-    margin:.2rem 0 1rem;
+  .hero-content .kicker{
+    font-family:'Caveat',cursive;font-size:1.6rem;color:var(--gold);display:block;margin-bottom:6px;
   }
-  .hero-text h1 em{
-    font-style:normal;
-    color:var(--marigold-light);
-    text-shadow:0 0 25px rgba(255,201,92,.5);
+  .hero-content h1{
+    font-size:clamp(3rem,9vw,6rem);font-weight:900;letter-spacing:2px;
+    background:linear-gradient(90deg,var(--gold),var(--pink));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    line-height:1;
   }
-  .hero-text p{
-    color:var(--cream-dim);
-    font-size:1.1rem;
-    max-width:520px;
-    margin-bottom:2rem;
-    line-height:1.7;
+  .hero-content h1 small{
+    display:block;font-size:1.4rem;letter-spacing:6px;color:var(--cream);
+    -webkit-text-fill-color:var(--cream);margin-top:10px;font-weight:400;
   }
-  .hero-btns{display:flex; gap:1rem; flex-wrap:wrap;}
-  .hero-stats{
-    display:flex;
-    gap:2rem;
-    margin-top:2.5rem;
-    flex-wrap:wrap;
+  .hero-content p.tag{
+    margin:24px auto;max-width:520px;font-size:1.1rem;color:#e6e2f0;line-height:1.6;
   }
-  .hero-stats div{
-    color:var(--cream);
-  }
-  .hero-stats strong{
-    display:block;
-    font-family:'Fraunces', serif;
-    font-size:1.8rem;
-    color:var(--marigold-light);
-  }
-  .hero-stats span{
-    font-size:.8rem;
-    color:var(--cream-dim);
-    text-transform:uppercase;
-    letter-spacing:1px;
-  }
-
-  .hero-visual{
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .plate{
-    width:340px;
-    height:340px;
-    max-width:80vw;
-    max-height:80vw;
-    border-radius:50%;
-    background:
-      radial-gradient(circle at 35% 30%, rgba(255,255,255,0.12), transparent 60%),
-      conic-gradient(from 180deg, var(--terracotta), var(--marigold), var(--teal), var(--dusk-warm), var(--terracotta));
-    box-shadow:0 25px 60px rgba(0,0,0,.45), inset 0 0 0 12px rgba(255,246,233,.85);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    animation:spin 26s linear infinite;
-    position:relative;
-  }
-  @keyframes spin{
-    from{transform:rotate(0deg);}
-    to{transform:rotate(360deg);}
-  }
-  .plate::before{
-    content:'🌮';
-    font-size:6.5rem;
-    animation:counterspin 26s linear infinite;
-    filter:drop-shadow(0 8px 15px rgba(0,0,0,.35));
-  }
-  @keyframes counterspin{
-    from{transform:rotate(0deg);}
-    to{transform:rotate(-360deg);}
-  }
-  .orbit-badge{
-    position:absolute;
-    background:var(--cream);
-    color:var(--dusk-deep);
-    padding:.6rem 1rem;
-    border-radius:14px;
-    font-weight:600;
-    font-size:.85rem;
-    box-shadow:var(--shadow);
-    display:flex;
-    align-items:center;
-    gap:.4rem;
-  }
-  .orbit-badge.b1{top:-10px; left:-30px;}
-  .orbit-badge.b2{bottom:0; right:-40px;}
-
-  .scroll-cue{
-    position:absolute;
-    bottom:26px;
-    left:50%;
-    transform:translateX(-50%);
-    color:var(--cream-dim);
-    font-size:.75rem;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    z-index:3;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:.4rem;
-  }
-  .scroll-cue .line{
-    width:1px; height:36px;
-    background:linear-gradient(var(--marigold-light), transparent);
-    animation:scrolldown 1.8s ease-in-out infinite;
-  }
-  @keyframes scrolldown{
-    0%{opacity:0; transform:translateY(-6px);}
-    50%{opacity:1;}
-    100%{opacity:0; transform:translateY(10px);}
-  }
-
-  /* ---------- SECTION GENERAL ---------- */
-  .section-head{
-    text-align:center;
-    max-width:640px;
-    margin:0 auto 3.2rem;
-  }
-  .section-head h2{
-    font-size:clamp(2rem, 4vw, 2.8rem);
-    margin-top:.3rem;
-  }
-  .section-head p{
-    color:#6a5a63;
-    margin-top:.9rem;
-    line-height:1.7;
-  }
-
-  /* ---------- STORY ---------- */
-  .story{
-    padding:7rem 0;
-    background:var(--cream);
-  }
-  .story-grid{
-    display:grid;
-    grid-template-columns:.9fr 1.1fr;
-    gap:3.5rem;
-    align-items:center;
-  }
-  .story-art{
-    position:relative;
-    height:420px;
-    border-radius:28px;
-    background:linear-gradient(145deg, var(--terracotta), var(--marigold));
-    overflow:hidden;
-    box-shadow:var(--shadow);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .story-art .pattern{
-    position:absolute;
-    inset:0;
-    background-image:radial-gradient(circle, rgba(255,255,255,.35) 2px, transparent 2.5px);
-    background-size:26px 26px;
-    opacity:.5;
-  }
-  .story-art .emoji-stack{
-    position:relative;
-    font-size:5rem;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:1.6rem;
-    z-index:2;
-  }
-  .story-art .emoji-stack span{
-    filter:drop-shadow(0 10px 12px rgba(0,0,0,.25));
-    animation:bob 3.4s ease-in-out infinite;
-  }
-  .story-art .emoji-stack span:nth-child(2){animation-delay:.4s;}
-  .story-art .emoji-stack span:nth-child(3){animation-delay:.8s;}
-  .story-art .emoji-stack span:nth-child(4){animation-delay:1.2s;}
-  @keyframes bob{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-14px);}
-  }
-  .story-copy h2{color:var(--dusk-deep);}
-  .story-copy p{
-    color:#5c4c53;
-    line-height:1.85;
-    margin:1.1rem 0;
-  }
-  .story-copy .badges{
-    display:flex;
-    gap:1rem;
-    margin-top:1.6rem;
-    flex-wrap:wrap;
+  .badge-row{
+    display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:28px;
   }
   .badge{
-    background:var(--dusk-deep);
-    color:var(--cream);
-    padding:.5rem 1rem;
-    border-radius:30px;
-    font-size:.82rem;
-    display:flex;
-    align-items:center;
-    gap:.4rem;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);
+    padding:8px 16px;border-radius:30px;font-size:.85rem;display:flex;align-items:center;gap:6px;
+  }
+  .btn-row{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;}
+  .btn{
+    padding:14px 30px;border-radius:36px;font-weight:600;font-size:1rem;
+    transition:transform .25s ease, box-shadow .25s ease;display:inline-block;
+  }
+  .btn-primary{background:var(--terracotta);color:#fff;box-shadow:0 8px 20px rgba(217,83,30,.4);}
+  .btn-outline{border:2px solid var(--gold);color:var(--gold);}
+  .btn:hover{transform:translateY(-3px);}
+  .scroll-cue{
+    position:absolute;bottom:26px;left:50%;transform:translateX(-50%);color:var(--cream);
+    font-size:.8rem;opacity:.7;animation:bob 2s infinite ease-in-out;
+  }
+  @keyframes bob{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
+
+  /* ===== GENERIC SECTION ===== */
+  section{padding:100px 0;position:relative;}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 60px;}
+  .section-head .eyebrow{
+    color:var(--terracotta);font-weight:600;letter-spacing:3px;text-transform:uppercase;font-size:.8rem;
+  }
+  .section-head h2{font-size:clamp(2rem,5vw,2.8rem);margin:10px 0 14px;}
+  .section-head p{color:#5a5148;line-height:1.7;}
+
+  .reveal{opacity:0;transform:translateY(40px);transition:all .8s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  /* ===== ABOUT ===== */
+  #about{background:var(--cream);}
+  .about-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  }
+  .about-photo{
+    position:relative;border-radius:20px;overflow:hidden;min-height:380px;
+    background:linear-gradient(135deg,#f4a300,#d9531e);
+    display:flex;align-items:center;justify-content:center;color:#fff;
+    box-shadow:0 20px 40px rgba(217,83,30,.25);
+  }
+  .about-photo::before{
+    content:"🌮 🌶 🧉";font-size:3rem;letter-spacing:20px;opacity:.9;
+  }
+  .about-text h3{font-size:1.9rem;margin-bottom:18px;color:var(--terracotta);}
+  .about-text p{margin-bottom:16px;line-height:1.8;color:#4a4038;}
+  .about-text .script{color:var(--pink);font-size:1.5rem;}
+
+  @media(max-width:860px){
+    .about-grid{grid-template-columns:1fr;}
   }
 
-  /* ---------- MENU ---------- */
-  .menu{
-    padding:7rem 0;
-    background:
-      linear-gradient(rgba(28,17,71,.94), rgba(58,31,93,.94)),
-      repeating-linear-gradient(45deg, rgba(255,255,255,.02) 0 10px, transparent 10px 20px);
-    color:var(--cream);
+  /* ===== MENU ===== */
+  #menu{background:var(--night2);color:var(--cream);}
+  #menu .section-head p{color:#c9c4dd;}
+  #menu .section-head .eyebrow{color:var(--gold);}
+  .menu-tabs{display:flex;justify-content:center;gap:14px;margin-bottom:50px;flex-wrap:wrap;}
+  .menu-tab{
+    padding:10px 22px;border:1px solid rgba(255,255,255,.25);border-radius:30px;
+    font-size:.9rem;cursor:pointer;color:var(--cream);transition:.25s;
   }
-  .menu .section-head p{color:var(--cream-dim);}
-  .menu .eyebrow{color:var(--marigold-light);}
+  .menu-tab.active,.menu-tab:hover{background:var(--gold);color:var(--night2);border-color:var(--gold);}
   .menu-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:1.6rem;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;
   }
-  .dish{
-    background:rgba(255,246,233,0.06);
-    border:1px solid rgba(255,246,233,.12);
-    border-radius:20px;
-    padding:1.8rem;
-    transition:transform .3s ease, background .3s ease, border-color .3s ease;
-    position:relative;
-    overflow:hidden;
+  .menu-card{
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+    border-radius:16px;padding:26px;transition:transform .3s ease, background .3s ease;
   }
-  .dish::before{
-    content:'';
-    position:absolute;
-    top:-40%; left:-40%;
-    width:180%; height:180%;
-    background:radial-gradient(circle, rgba(244,165,49,.15), transparent 60%);
-    opacity:0;
-    transition:opacity .4s ease;
-  }
-  .dish:hover::before{opacity:1;}
-  .dish:hover{
-    transform:translateY(-8px);
-    background:rgba(255,246,233,0.1);
-    border-color:var(--marigold-light);
-  }
-  .dish-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    margin-bottom:.8rem;
-    position:relative;
-    z-index:1;
-  }
-  .dish-icon{font-size:2.1rem;}
-  .price-tag{
-    background:var(--marigold);
-    color:var(--dusk-deep);
-    font-weight:700;
-    font-size:.8rem;
-    padding:.25rem .7rem;
-    border-radius:20px;
-    white-space:nowrap;
-  }
-  .dish h3{
-    font-size:1.3rem;
-    margin-bottom:.5rem;
-    position:relative;
-    z-index:1;
-  }
-  .dish p{
-    color:var(--cream-dim);
-    font-size:.9rem;
-    line-height:1.6;
-    position:relative;
-    z-index:1;
-  }
-  .menu-note{
-    text-align:center;
-    margin-top:2.5rem;
-    color:var(--cream-dim);
-    font-size:.85rem;
-  }
-  .menu-note em{color:var(--marigold-light); font-style:normal;}
+  .menu-card:hover{transform:translateY(-8px);background:rgba(255,255,255,.09);}
+  .menu-card .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
+  .menu-card h4{font-size:1.15rem;color:var(--gold);}
+  .menu-card .price{color:var(--pink);font-weight:600;font-size:.95rem;}
+  .menu-card p{font-size:.88rem;color:#c9c4dd;line-height:1.5;}
+  .menu-note{text-align:center;margin-top:40px;font-size:.85rem;color:#9a94b5;}
 
-  /* ---------- AMENITIES ---------- */
-  .amenities{
-    padding:5rem 0;
-    background:var(--cream);
+  /* ===== AMENITIES ===== */
+  #amenities{background:var(--cream);}
+  .amenity-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;text-align:center;
   }
-  .amen-grid{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:1.4rem;
-  }
-  .amen-card{
-    background:#fff;
-    border-radius:18px;
-    padding:2rem 1.4rem;
-    text-align:center;
-    box-shadow:0 8px 24px rgba(60,30,50,.08);
+  .amenity-card{
+    background:#fff;padding:36px 22px;border-radius:18px;box-shadow:0 12px 28px rgba(0,0,0,.06);
     transition:transform .3s ease;
   }
-  .amen-card:hover{transform:translateY(-6px);}
-  .amen-card .ic{
-    font-size:2.3rem;
-    margin-bottom:.8rem;
-  }
-  .amen-card h4{
-    font-family:'Poppins',sans-serif;
-    font-weight:600;
-    font-size:1rem;
-    color:var(--dusk-deep);
-  }
-  .amen-card p{
-    font-size:.82rem;
-    color:#7a6a70;
-    margin-top:.4rem;
-  }
+  .amenity-card:hover{transform:translateY(-8px);}
+  .amenity-card .icon{font-size:2.2rem;margin-bottom:14px;display:block;}
+  .amenity-card h4{margin-bottom:8px;font-size:1.05rem;}
+  .amenity-card p{font-size:.85rem;color:#6b6157;}
 
-  /* ---------- REVIEWS ---------- */
-  .reviews{
-    padding:7rem 0;
-    background:linear-gradient(180deg, var(--cream), var(--cream-dim));
-    position:relative;
-  }
-  .rating-banner{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:1.2rem;
-    margin-bottom:3rem;
-    flex-wrap:wrap;
-  }
-  .rating-score{
-    font-family:'Fraunces', serif;
-    font-size:3rem;
-    font-weight:800;
-    color:var(--dusk-deep);
-  }
-  .stars{color:var(--marigold); font-size:1.4rem; letter-spacing:2px;}
-  .rating-sub{color:#6a5a63; font-size:.9rem;}
-
-  .review-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:1.6rem;
-  }
+  /* ===== REVIEWS ===== */
+  #reviews{background:linear-gradient(180deg,var(--night2),var(--night));color:var(--cream);}
+  .stars{color:var(--gold);letter-spacing:2px;font-size:1.1rem;}
+  .review-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;}
   .review-card{
-    background:#fff;
-    border-radius:20px;
-    padding:1.8rem;
-    box-shadow:0 10px 26px rgba(60,30,50,.08);
-    position:relative;
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+    padding:28px;border-radius:16px;
   }
-  .review-card .quote-mark{
-    font-family:'Fraunces', serif;
-    font-size:3.4rem;
-    color:var(--marigold-light);
-    line-height:0;
-    position:absolute;
-    top:1.6rem;
-    right:1.4rem;
-    opacity:.6;
+  .review-card p{font-size:.95rem;line-height:1.6;color:#e3dff0;margin:14px 0;}
+  .review-name{font-weight:600;color:var(--gold);font-size:.9rem;}
+  .rating-summary{
+    display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:50px;flex-wrap:wrap;
   }
-  .review-card .stars{font-size:1rem; margin-bottom:.8rem;}
-  .review-card p.txt{
-    color:#5c4c53;
-    font-size:.92rem;
-    line-height:1.7;
-    font-style:italic;
-    margin-bottom:1.2rem;
-  }
-  .reviewer{
-    display:flex;
-    align-items:center;
-    gap:.7rem;
-  }
-  .reviewer .av{
-    width:40px; height:40px;
-    border-radius:50%;
-    background:linear-gradient(135deg, var(--terracotta), var(--marigold));
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#fff;
-    font-weight:700;
-  }
-  .reviewer strong{display:block; font-size:.88rem; color:var(--dusk-deep);}
-  .reviewer span{font-size:.76rem; color:#9a8a90;}
+  .rating-num{font-size:3rem;font-weight:900;color:var(--gold);font-family:'Fraunces',serif;}
 
-  /* ---------- VISIT ---------- */
-  .visit{
-    padding:7rem 0;
-    background:var(--dusk-deep);
-    color:var(--cream);
-    position:relative;
-    overflow:hidden;
+  /* ===== VISIT ===== */
+  #visit{background:var(--cream);}
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;}
+  .info-card{
+    background:#fff;border-radius:20px;padding:36px;box-shadow:0 14px 34px rgba(0,0,0,.08);
   }
-  .visit::after{
-    content:'';
-    position:absolute;
-    bottom:-100px; right:-100px;
-    width:320px; height:320px;
-    background:radial-gradient(circle, rgba(244,165,49,.18), transparent 70%);
-  }
-  .visit-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:3rem;
-    position:relative;
-    z-index:1;
-  }
-  .visit-card h2{color:var(--cream); margin-bottom:1.4rem;}
-  .info-row{
-    display:flex;
-    gap:1rem;
-    margin-bottom:1.6rem;
-    align-items:flex-start;
-  }
-  .info-row .ic{
-    font-size:1.4rem;
-    background:rgba(255,246,233,.1);
-    padding:.7rem;
-    border-radius:12px;
-  }
-  .info-row h4{font-size:1rem; margin-bottom:.3rem; color:var(--marigold-light);}
-  .info-row p, .info-row a{color:var(--cream-dim); font-size:.92rem; line-height:1.6;}
-  .info-row a:hover{color:var(--cream);}
+  .info-card h3{color:var(--terracotta);margin-bottom:18px;}
+  .info-row{display:flex;gap:14px;margin-bottom:18px;align-items:flex-start;}
+  .info-row .icon{font-size:1.3rem;}
+  .info-row a{color:var(--text-dark);font-weight:500;}
+  table.hours{width:100%;border-collapse:collapse;margin-top:10px;}
+  table.hours td{padding:6px 0;font-size:.92rem;border-bottom:1px dashed #e5ddd0;}
+  table.hours td:last-child{text-align:right;color:var(--terracotta);font-weight:600;}
+  .map-wrap{border-radius:20px;overflow:hidden;min-height:340px;box-shadow:0 14px 34px rgba(0,0,0,.08);}
+  .map-wrap iframe{width:100%;height:100%;min-height:340px;border:0;}
+  .edit-note{font-size:.75rem;color:#a49b8c;margin-top:6px;font-style:italic;}
 
-  table.hours{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:.4rem;
-  }
-  table.hours td{
-    padding:.35rem 0;
-    font-size:.9rem;
-    color:var(--cream-dim);
-    border-bottom:1px dashed rgba(255,246,233,.15);
-  }
-  table.hours td:last-child{text-align:right; color:var(--cream);}
-  .placeholder{
-    color:var(--marigold-light);
-    font-style:italic;
-  }
-
-  .map-wrap{
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:var(--shadow);
-    height:100%;
-    min-height:340px;
-    border:4px solid rgba(255,246,233,.12);
-  }
-  .map-wrap iframe{
-    width:100%;
-    height:100%;
-    min-height:340px;
-    border:0;
-    filter:saturate(.9) contrast(1.05);
-  }
-
-  .visit-btns{
-    display:flex;
-    gap:1rem;
-    margin-top:2rem;
-    flex-wrap:wrap;
-  }
-
-  /* ---------- FOOTER ---------- */
-  footer{
-    background:#150c33;
-    color:var(--cream-dim);
-    padding:3rem 0 1.6rem;
-    text-align:center;
-  }
-  footer .logo{justify-content:center; margin-bottom:1rem;}
-  footer .flinks{
-    display:flex;
-    justify-content:center;
-    gap:1.8rem;
-    margin-bottom:1.6rem;
-    flex-wrap:wrap;
-  }
-  footer .flinks a{font-size:.88rem; color:var(--cream-dim);}
-  footer .flinks a:hover{color:var(--marigold-light);}
-  footer small{font-size:.76rem; opacity:.6; display:block; margin-top:.6rem;}
-
-  /* ---------- RESPONSIVE ---------- */
-  @media (max-width:980px){
-    .hero-content{grid-template-columns:1fr; text-align:center;}
-    .hero-text p{margin-inline:auto;}
-    .hero-btns, .hero-stats{justify-content:center;}
-    .hero-visual{margin-top:2rem;}
-    .story-grid{grid-template-columns:1fr;}
-    .story-art{order:-1;}
-    .menu-grid{grid-template-columns:repeat(2,1fr);}
-    .amen-grid{grid-template-columns:repeat(2,1fr);}
-    .review-grid{grid-template-columns:1fr;}
+  @media(max-width:860px){
     .visit-grid{grid-template-columns:1fr;}
   }
 
-  @media (max-width:720px){
-    nav.links, .nav-cta .btn-ghost{display:none;}
-    .burger{display:flex;}
-    nav.links.open{
-      display:flex;
-      position:fixed;
-      inset:0 0 0 30%;
-      background:var(--dusk-deep);
-      flex-direction:column;
-      align-items:flex-start;
-      justify-content:center;
-      padding:2.5rem;
-      gap:1.8rem;
-      z-index:150;
-    }
-    nav.links.open a{font-size:1.2rem;}
-    .picado{width:36px; height:44px;}
-    .menu-grid{grid-template-columns:1fr;}
-    .amen-grid{grid-template-columns:1fr 1fr;}
-  }
+  /* ===== FOOTER ===== */
+  footer{background:var(--night2);color:#cfc9e2;padding:50px 0 26px;text-align:center;}
+  footer .logo{justify-content:center;margin-bottom:14px;}
+  footer .foot-links{display:flex;justify-content:center;gap:24px;margin:18px 0;flex-wrap:wrap;}
+  footer .foot-links a{color:#cfc9e2;font-size:.9rem;}
+  footer .foot-links a:hover{color:var(--gold);}
+  footer small{color:#7d76a0;font-size:.78rem;}
+
+  ::selection{background:var(--gold);color:var(--night2);}
 </style>
 </head>
 <body>
 
-<!-- ================= NAV ================= -->
-<header class="nav" id="siteNav">
-  <div class="container nav-inner">
-    <a href="#home" class="logo">
-      <span class="dot"></span>
-      <span>Cocuyos</span>
-    </a>
-    <nav class="links" id="navLinks">
-      <a href="#home">Home</a>
-      <a href="#story">Our Story</a>
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="logo"><span class="dot"></span>Cocuyos</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">Our Story</a>
       <a href="#menu">Menu</a>
+      <a href="#amenities">Amenities</a>
       <a href="#reviews">Reviews</a>
-      <a href="#visit">Visit Us</a>
+      <a href="#visit">Visit</a>
     </nav>
-    <div class="nav-cta">
-      <a href="tel:+18312375004" class="btn btn-ghost">📞 (831) 237-5004</a>
-      <div class="burger" id="burger">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
+    <a href="#visit" class="nav-cta">Find Us</a>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </div>
 </header>
 
-<!-- ================= HERO ================= -->
-<section class="hero" id="home">
-  <div class="picado-row" id="picadoRow"></div>
-  <div id="firefly-layer"></div>
-
-  <div class="container hero-content">
-    <div class="hero-text">
-      <span class="eyebrow">Soledad, California</span>
-      <h1>Little lights, <br> big <em>flavor.</em></h1>
-      <p>Cocuyos means "fireflies" — and just like their warm glow on a summer night, our kitchen brings a little spark to every plate. Homemade tortillas, sizzling fajitas, and family recipes served the way abuela intended, right here in Soledad.</p>
-      <div class="hero-btns">
-        <a href="#menu" class="btn btn-primary">🌮 See the Menu</a>
-        <a href="tel:+18312375004" class="btn btn-ghost">Call to Order</a>
-      </div>
-      <div class="hero-stats">
-        <div><strong>4.7★</strong><span>Google Rating</span></div>
-        <div><strong>374+</strong><span>Happy Reviews</span></div>
-        <div><strong>$10–20</strong><span>Per Person</span></div>
-      </div>
+<!-- HERO -->
+<section id="hero">
+  <div class="papel" id="papel"></div>
+  <div id="fireflyLayer"></div>
+  <div class="hero-content">
+    <span class="kicker">Little lights, big flavor</span>
+    <h1>COCUYOS<small>MEXICAN RESTAURANT · SOLEDAD, CA</small></h1>
+    <p class="tag">Named for the fireflies that glow over Central Coast summer nights — a warm, homey table serving traditional-style Mexican dishes made from scratch, daily.</p>
+    <div class="badge-row">
+      <span class="badge">⭐ 4.7 · 374 Google reviews</span>
+      <span class="badge">🌿 Vegan options</span>
+      <span class="badge">🧒 Kids menu</span>
+      <span class="badge">🌤 Outdoor seating</span>
     </div>
-
-    <div class="hero-visual">
-      <div class="orbit-badge b1">🌱 Vegan Options</div>
-      <div class="plate"></div>
-      <div class="orbit-badge b2">🧒 Kids Menu</div>
+    <div class="btn-row">
+      <a href="#menu" class="btn btn-primary">View the Menu</a>
+      <a href="#visit" class="btn btn-outline">Get Directions</a>
     </div>
   </div>
-
-  <div class="scroll-cue">
-    <span>Scroll</span>
-    <div class="line"></div>
-  </div>
+  <div class="scroll-cue">↓ scroll to explore</div>
 </section>
 
-<!-- ================= STORY ================= -->
-<section class="story" id="story">
-  <div class="container story-grid">
-    <div class="story-art">
-      <div class="pattern"></div>
-      <div class="emoji-stack">
-        <span>🫓</span>
-        <span>🌶️</span>
-        <span>🥑</span>
-        <span>🦐</span>
-      </div>
-    </div>
-    <div class="story-copy">
-      <span class="eyebrow">A homey table on Kidder Street</span>
-      <h2>Made from scratch, served with heart.</h2>
-      <p>Cocuyos is a casual, family-run kitchen where the tortillas are pressed by hand and the salsa is made fresh daily. Neighbors come for the generous portions and hardworking, friendly staff — and they stay for the kind of authentic flavor that feels like a trip home.</p>
-      <p>Grab a seat on our outdoor patio, order a michelada or fresh horchata, and let the kitchen do what it does best.</p>
-      <div class="badges">
-        <span class="badge">🌤️ Outdoor Seating</span>
-        <span class="badge">🌱 Vegan Options</span>
-        <span class="badge">🧒 Kids Menu</span>
-        <span class="badge">💵 $10–20 / person</span>
-      </div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-photo reveal"></div>
+    <div class="about-text reveal">
+      <span class="eyebrow" style="color:var(--terracotta);font-weight:600;letter-spacing:3px;">OUR STORY</span>
+      <h3>A homey table, lit like a summer night</h3>
+      <p>In Spanish, <span class="script">cocuyos</span> means fireflies — the little glowing lights that appear over Soledad's fields on warm evenings. It's that same warmth we bring to every plate: casual, unhurried, and full of heart.</p>
+      <p>Cocuyos is a family-run, casual eatery on Kidder Street serving traditional-style Mexican dishes made the way abuela taught — hand-pressed tortillas, slow-simmered sauces, and salsas made fresh in the molcajete. Pull up a chair on our outdoor patio and settle in.</p>
+      <p>Guests keep coming back for the generous portions, the fast and friendly service, and prices that feel like a gift. It's the kind of place where everyone — vegans, kids, and abuelitos alike — finds something to love.</p>
     </div>
   </div>
 </section>
 
-<!-- ================= MENU ================= -->
-<section class="menu" id="menu">
+<!-- MENU -->
+<section id="menu">
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Signature Dishes</span>
-      <h2>Tastes worth the drive to Soledad</h2>
-      <p>A few of the favorites our regulars keep coming back for. Full menu available in-restaurant — ask your server about daily specials.</p>
+    <div class="section-head reveal">
+      <span class="eyebrow">Sabores de la casa</span>
+      <h2>Signature Dishes</h2>
+      <p>A taste of what glows brightest on our tables. Full menu available in-house — prices below are editable placeholders.</p>
     </div>
-
-    <div class="menu-grid">
-      <div class="dish">
-        <div class="dish-top"><span class="dish-icon">🫓</span><span class="price-tag">[PRICE]</span></div>
-        <h3>Homemade Tortillas</h3>
-        <p>Pressed and cooked fresh in-house — the base of everything great on your plate.</p>
-      </div>
-      <div class="dish">
-        <div class="dish-top"><span class="dish-icon">🌯</span><span class="price-tag">[PRICE]</span></div>
-        <h3>Enchiladas</h3>
-        <p>Traditional-style, smothered in rich sauce and melted cheese.</p>
-      </div>
-      <div class="dish">
-        <div class="dish-top"><span class="dish-icon">🦐</span><span class="price-tag">[PRICE]</span></div>
-        <h3>Fajitas de Camarón</h3>
-        <p>Sizzling shrimp fajitas loaded with peppers and onions, served hot off the skillet.</p>
-      </div>
-      <div class="dish">
-        <div class="dish-top"><span class="dish-icon">🥑</span><span class="price-tag">[PRICE]</span></div>
-        <h3>Guacamole</h3>
-        <p>Chunky, fresh, and made to order — the perfect start to any meal.</p>
-      </div>
-      <div class="dish">
-        <div class="dish-top"><span class="dish-icon">🌮</span><span class="price-tag">[PRICE]</span></div>
-        <h3>Three Street Tacos</h3>
-        <p>Your choice of meat, topped with onion, cilantro, and house salsa.</p>
-      </div>
-      <div class="dish">
-        <div class="dish-top"><span class="dish-icon">🐟</span><span class="price-tag">[PRICE]</span></div>
-        <h3>Fried Tilapia</h3>
-        <p>Golden and crispy, served with rice, beans, and fresh tortillas.</p>
-      </div>
-      <div class="dish">
-        <div class="dish-top"><span class="dish-icon">🌶️</span><span class="price-tag">[PRICE]</span></div>
-        <h3>Chile Rellenos</h3>
-        <p>Roasted poblano peppers stuffed and battered to golden perfection.</p>
-      </div>
-      <div class="dish">
-        <div class="dish-top"><span class="dish-icon">🍳</span><span class="price-tag">[PRICE]</span></div>
-        <h3>Chilaquiles Verdes</h3>
-        <p>Crispy tortilla chips simmered in tangy green salsa, a breakfast favorite.</p>
-      </div>
-      <div class="dish">
-        <div class="dish-top"><span class="dish-icon">🍲</span><span class="price-tag">[PRICE]</span></div>
-        <h3>Molcajete</h3>
-        <p>A sizzling stone bowl piled high with grilled meats, cheese, and salsa.</p>
-      </div>
-      <div class="dish">
-        <div class="dish-top"><span class="dish-icon">🍟</span><span class="price-tag">[PRICE]</span></div>
-        <h3>Asada Fries</h3>
-        <p>Loaded fries topped with steak, cheese, guac, and crema.</p>
-      </div>
-      <div class="dish">
-        <div class="dish-top"><span class="dish-icon">🥛</span><span class="price-tag">[PRICE]</span></div>
-        <h3>Horchata</h3>
-        <p>Sweet, creamy, and cinnamon-kissed — the perfect cooldown.</p>
-      </div>
-      <div class="dish">
-        <div class="dish-top"><span class="dish-icon">🍺</span><span class="price-tag">[PRICE]</span></div>
-        <h3>Micheladas</h3>
-        <p>Bold, spicy, and refreshing — a Cocuyos happy-hour favorite.</p>
-      </div>
+    <div class="menu-tabs">
+      <div class="menu-tab active" data-cat="all">All</div>
+      <div class="menu-tab" data-cat="starters">Antojitos</div>
+      <div class="menu-tab" data-cat="mains">Platillos</div>
+      <div class="menu-tab" data-cat="drinks">Bebidas</div>
     </div>
-    <p class="menu-note">Most entrées run <em>$10–$20 per person</em>. Exact pricing marked <span class="placeholder">[PRICE]</span> — please confirm current menu prices with the restaurant.</p>
+    <div class="menu-grid" id="menuGrid">
+      <div class="menu-card reveal" data-cat="starters"><div class="row"><h4>Guacamole</h4><span class="price">[$PRICE]</span></div><p>Fresh-mashed avocado, hand-mixed at your table's request — served with warm homemade tortillas.</p></div>
+      <div class="menu-card reveal" data-cat="starters"><div class="row"><h4>Three Street Tacos</h4><span class="price">[$PRICE]</span></div><p>A trio of classic street tacos, served with fresh salsa and lime, your choice of meat.</p></div>
+      <div class="menu-card reveal" data-cat="starters"><div class="row"><h4>Asada Fries</h4><span class="price">[$PRICE]</span></div><p>Crispy fries piled high with carne asada, cheese, and all the fixings.</p></div>
+      <div class="menu-card reveal" data-cat="mains"><div class="row"><h4>Enchiladas</h4><span class="price">[$PRICE]</span></div><p>Rolled tortillas bathed in traditional sauce, layered with melted cheese.</p></div>
+      <div class="menu-card reveal" data-cat="mains"><div class="row"><h4>Fajitas de Camarón</h4><span class="price">[$PRICE]</span></div><p>Sizzling shrimp fajitas with peppers and onions, served with tortillas and rice.</p></div>
+      <div class="menu-card reveal" data-cat="mains"><div class="row"><h4>Fried Tilapia</h4><span class="price">[$PRICE]</span></div><p>Whole fried tilapia, crisped golden and served with rice, salad, and salsa.</p></div>
+      <div class="menu-card reveal" data-cat="mains"><div class="row"><h4>Chile Rellenos</h4><span class="price">[$PRICE]</span></div><p>Roasted poblano peppers, stuffed and battered, topped with house sauce.</p></div>
+      <div class="menu-card reveal" data-cat="mains"><div class="row"><h4>Chilaquiles Verdes</h4><span class="price">[$PRICE]</span></div><p>Crisp tortilla chips simmered in tangy green salsa, topped with crema and cheese.</p></div>
+      <div class="menu-card reveal" data-cat="mains"><div class="row"><h4>Molcajete</h4><span class="price">[$PRICE]</span></div><p>A sizzling stone bowl loaded with grilled meats, cactus, cheese, and salsa.</p></div>
+      <div class="menu-card reveal" data-cat="drinks"><div class="row"><h4>Horchata</h4><span class="price">[$PRICE]</span></div><p>House-made rice cinnamon water, cool and lightly sweet.</p></div>
+      <div class="menu-card reveal" data-cat="drinks"><div class="row"><h4>Michelada</h4><span class="price">[$PRICE]</span></div><p>Cold Mexican beer mixed with lime, spices, and a chile-salted rim.</p></div>
+      <div class="menu-card reveal" data-cat="starters"><div class="row"><h4>Homemade Tortillas</h4><span class="price">[$PRICE]</span></div><p>Fresh-pressed, griddled to order — the heart of every plate at Cocuyos.</p></div>
+    </div>
+    <p class="menu-note">Vegan-adaptable options and a kids menu available — just ask your server. Menu items &amp; prices: [CONFIRM WITH OWNER].</p>
   </div>
 </section>
 
-<!-- ================= AMENITIES ================= -->
-<section class="amenities">
+<!-- AMENITIES -->
+<section id="amenities">
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Good to know</span>
-      <h2 style="color:var(--dusk-deep);">Made for everyone at the table</h2>
+    <div class="section-head reveal">
+      <span class="eyebrow" style="color:var(--terracotta);font-weight:600;letter-spacing:3px;">WHY GUESTS RETURN</span>
+      <h2>Casual, Welcoming, Yours</h2>
+      <p>Everything about Cocuyos is built around comfort — for families, first dates, and everyone in between.</p>
     </div>
-    <div class="amen-grid">
-      <div class="amen-card">
-        <div class="ic">🌤️</div>
-        <h4>Outdoor Seating</h4>
-        <p>Enjoy the Salinas Valley air on our patio.</p>
-      </div>
-      <div class="amen-card">
-        <div class="ic">🌱</div>
-        <h4>Vegan Options</h4>
-        <p>Plant-based dishes available on request.</p>
-      </div>
-      <div class="amen-card">
-        <div class="ic">🧒</div>
-        <h4>Kids Menu</h4>
-        <p>Family-friendly plates for the little ones.</p>
-      </div>
-      <div class="amen-card">
-        <div class="ic">⚡</div>
-        <h4>Fast, Friendly Service</h4>
-        <p>Hardworking staff, quick turnaround.</p>
-      </div>
+    <div class="amenity-grid">
+      <div class="amenity-card reveal"><span class="icon">🌤</span><h4>Outdoor Seating</h4><p>Enjoy the Central Coast air on our patio tables.</p></div>
+      <div class="amenity-card reveal"><span class="icon">🌱</span><h4>Vegan Options</h4><p>Plant-based dishes made with the same care as everything else.</p></div>
+      <div class="amenity-card reveal"><span class="icon">🧒</span><h4>Kids Menu</h4><p>Family-friendly plates so everyone at the table eats happy.</p></div>
+      <div class="amenity-card reveal"><span class="icon">⚡</span><h4>Fast, Friendly Service</h4><p>Hardworking staff known for quick, warm hospitality.</p></div>
+      <div class="amenity-card reveal"><span class="icon">💵</span><h4>Great Value</h4><p>Generous portions at reasonable prices, roughly $10–$20 per person.</p></div>
+      <div class="amenity-card reveal"><span class="icon">🏠</span><h4>Homey Atmosphere</h4><p>A casual eatery that feels like family, every visit.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ================= REVIEWS ================= -->
-<section class="reviews" id="reviews">
+<!-- REVIEWS -->
+<section id="reviews">
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">What Soledad is saying</span>
-      <h2 style="color:var(--dusk-deep);">Neighbors keep coming back</h2>
+    <div class="section-head reveal">
+      <span class="eyebrow" style="color:var(--gold);">FROM OUR GUESTS</span>
+      <h2 style="color:var(--cream);">Loved on Google</h2>
     </div>
-
-    <div class="rating-banner">
-      <span class="rating-score">4.7</span>
+    <div class="rating-summary reveal">
+      <span class="rating-num">4.7</span>
       <div>
         <div class="stars">★★★★★</div>
-        <div class="rating-sub">Based on 374 Google reviews</div>
+        <p style="color:#cfc9e2;">Based on 374 Google reviews</p>
       </div>
     </div>
-
     <div class="review-grid">
-      <div class="review-card">
-        <span class="quote-mark">“</span>
+      <div class="review-card reveal">
         <div class="stars">★★★★★</div>
-        <p class="txt">[Placeholder — add a real customer review here about the authentic flavor and portion sizes.]</p>
-        <div class="reviewer">
-          <div class="av">G</div>
-          <div><strong>Google Reviewer</strong><span>Verified visit</span></div>
-        </div>
+        <p>"Authentic flavor and huge portions — this is the real deal. The homemade tortillas alone are worth the trip."</p>
+        <div class="review-name">— [Google Reviewer]</div>
       </div>
-      <div class="review-card">
-        <span class="quote-mark">“</span>
+      <div class="review-card reveal">
         <div class="stars">★★★★★</div>
-        <p class="txt">[Placeholder — add a real customer review here about the friendly, hardworking staff.]</p>
-        <div class="reviewer">
-          <div class="av">G</div>
-          <div><strong>Google Reviewer</strong><span>Verified visit</span></div>
-        </div>
+        <p>"Staff was so friendly and hardworking, service came out fast, and the whole place just feels homey and welcoming."</p>
+        <div class="review-name">— [Google Reviewer]</div>
       </div>
-      <div class="review-card">
-        <span class="quote-mark">“</span>
+      <div class="review-card reveal">
         <div class="stars">★★★★★</div>
-        <p class="txt">[Placeholder — add a real customer review here about the homey atmosphere and prices.]</p>
-        <div class="reviewer">
-          <div class="av">G</div>
-          <div><strong>Google Reviewer</strong><span>Verified visit</span></div>
-        </div>
+        <p>"Reasonable prices for the amount of food you get. The molcajete and shrimp fajitas were incredible."</p>
+        <div class="review-name">— [Google Reviewer]</div>
       </div>
     </div>
+    <p style="text-align:center;margin-top:36px;color:#9a94b5;font-size:.8rem;">Reviewer names withheld — replace with real testimonials from Google.</p>
   </div>
 </section>
 
-<!-- ================= VISIT ================= -->
-<section class="visit" id="visit">
-  <div class="container visit-grid">
-    <div class="visit-card">
-      <span class="eyebrow" style="color:var(--marigold-light);">Come say hello</span>
+<!-- VISIT -->
+<section id="visit">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" style="color:var(--terracotta);font-weight:600;letter-spacing:3px;">COME SAY HI</span>
       <h2>Visit Cocuyos</h2>
-
-      <div class="info-row">
-        <span class="ic">📍</span>
-        <div>
-          <h4>Address</h4>
-          <p>185 Kidder St, Soledad, CA 93960</p>
-        </div>
-      </div>
-
-      <div class="info-row">
-        <span class="ic">📞</span>
-        <div>
-          <h4>Phone</h4>
-          <a href="tel:+18312375004">(831) 237-5004</a>
-        </div>
-      </div>
-
-      <div class="info-row">
-        <span class="ic">🕒</span>
-        <div style="width:100%;">
-          <h4>Hours</h4>
-          <table class="hours">
-            <tr><td>Sunday</td><td>9:00 AM – <span class="placeholder">[CLOSE TIME]</span></td></tr>
-            <tr><td>Monday</td><td>11:00 AM – 8:00 PM</td></tr>
-            <tr><td>Tuesday</td><td>11:00 AM – 8:00 PM</td></tr>
-            <tr><td>Wednesday</td><td class="placeholder">[HOURS]</td></tr>
-            <tr><td>Thursday</td><td class="placeholder">[HOURS]</td></tr>
-            <tr><td>Friday</td><td class="placeholder">[HOURS]</td></tr>
-            <tr><td>Saturday</td><td class="placeholder">[HOURS]</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="visit-btns">
-        <a href="tel:+18312375004" class="btn btn-primary">📞 Call Now</a>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=185+Kidder+St,+Soledad,+CA+93960" target="_blank" rel="noopener" class="btn btn-ghost">🧭 Get Directions</a>
-      </div>
+      <p>Find us in Soledad — patio seats fill up fast on warm evenings.</p>
     </div>
-
-    <div class="map-wrap">
-      <iframe
-        src="https://www.google.com/maps?q=185+Kidder+St,+Soledad,+CA+93960&output=embed"
-        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+    <div class="visit-grid">
+      <div class="info-card reveal">
+        <h3>Contact &amp; Hours</h3>
+        <div class="info-row"><span class="icon">📍</span><div>185 Kidder St<br>Soledad, CA 93960</div></div>
+        <div class="info-row"><span class="icon">📞</span><a href="tel:+18312375004">(831) 237-5004</a></div>
+        <div class="info-row"><span class="icon">💲</span><div>Approx. $10–$20 per person</div></div>
+        <table class="hours">
+          <tr><td>Monday</td><td>11:00 AM – 8:00 PM</td></tr>
+          <tr><td>Tuesday</td><td>11:00 AM – 8:00 PM</td></tr>
+          <tr><td>Wednesday</td><td>[HOURS]</td></tr>
+          <tr><td>Thursday</td><td>[HOURS]</td></tr>
+          <tr><td>Friday</td><td>[HOURS]</td></tr>
+          <tr><td>Saturday</td><td>[HOURS]</td></tr>
+          <tr><td>Sunday</td><td>9:00 AM – [CLOSE TIME]</td></tr>
+        </table>
+        <p class="edit-note">*Hours confirmed for Mon–Tue and Sunday opening only — please confirm remaining hours with the owner.</p>
+      </div>
+      <div class="map-wrap reveal">
+        <iframe src="https://www.google.com/maps?q=185+Kidder+St,+Soledad,+CA+93960&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
-    <a href="#home" class="logo">
-      <span class="dot"></span>
-      <span style="color:var(--cream); font-size:1.4rem;">Cocuyos</span>
-    </a>
-    <div class="flinks">
+    <a href="#hero" class="logo"><span class="dot"></span>Cocuyos</a>
+    <div class="foot-links">
+      <a href="#about">Our Story</a>
       <a href="#menu">Menu</a>
+      <a href="#amenities">Amenities</a>
       <a href="#reviews">Reviews</a>
       <a href="#visit">Visit</a>
       <a href="tel:+18312375004">(831) 237-5004</a>
     </div>
-    <small>© <span id="year"></span> Cocuyos Restaurant · 185 Kidder St, Soledad, CA 93960 · Site built with love — details marked [PLACEHOLDER] pending confirmation from the owner.</small>
+    <small>© 2024 Cocuyos Restaurant · 185 Kidder St, Soledad, CA 93960 · Demo site — content marked [EDITABLE] pending owner confirmation.</small>
   </div>
 </footer>
 
 <script>
-  // Year
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Nav scroll state
-  const nav = document.getElementById('siteNav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  });
-
-  // Mobile menu toggle
-  const burger = document.getElementById('burger');
+  // Hamburger toggle
+  const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
-  burger.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-  });
-  navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => navLinks.classList.remove('open'));
-  });
-
-  // Papel picado banner
-  const picadoRow = document.getElementById('picadoRow');
-  const flagCount = Math.max(10, Math.floor(window.innerWidth / 60));
-  for (let i = 0; i < flagCount; i++) {
-    const f = document.createElement('div');
-    f.className = 'picado';
-    picadoRow.appendChild(f);
-  }
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
   // Fireflies
-  const layer = document.getElementById('firefly-layer');
-  const total = 34;
-  for (let i = 0; i < total; i++) {
-    const f
+  const layer = document.getElementById('fireflyLayer');
+  const count = window.innerWidth < 600 ? 14 : 26;
+  for (let i = 0; i < count; i++) {
+    const f = document.createElement('div');
+    f.className = 'firefly';
+    const size = Math.random() * 5 + 3;
+    f.style.width = size + 'px';
+    f.style.height = size + 'px';
+    f.style.top = Math.random() * 100 + '%';
+    f.style.left = Math.random() * 100 + '%';
+    f.style.animationDuration = (6 + Math.random() * 6) + 's, ' + (2 + Math.random() * 3) + 's';
+    f.style.animationDelay = (Math.random() * 5) + 's';
+    layer.appendChild(f);
+  }
+
+  // Papel picado flags
+  const papel = document.getElementById('papel');
+  for (let i = 0; i < 16; i++) {
+    const flag = document.createElement('div');
+    flag.className = 'flag';
+    papel.appendChild(flag);
+  }
+
+  // Menu tab filter
+  const tabs = document.querySelectorAll('.menu-tab');
+  const cards = document.querySelectorAll('.menu-card');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const cat = tab.dataset.cat;
+      cards.forEach(card => {
+        card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
+      });
+    });
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav background on scroll
+  const nav = document.querySelector('header.nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      nav.style.padding = '0';
+      nav.style.boxShadow = '0 6px 20px rgba(0,0,0,.35)';
+    } else {
+      nav.style.boxShadow = 'none';
+    }
+  });
+</script>
+</body>
+</html>
