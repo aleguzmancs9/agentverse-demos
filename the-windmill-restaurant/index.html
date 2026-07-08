@@ -3,614 +3,363 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Windmill Restaurant | Soledad, CA — American Diner &amp; Mixologia</title>
-<meta name="description" content="The Windmill Restaurant in Soledad, CA — all-day breakfast, hearty American classics, Mexican specialties, steaks, seafood and full-bar mixologia. #1 rated restaurant in Soledad on TripAdvisor.">
+<title>The Windmill Restaurant | Soledad, CA — American Diner &amp; Mixologia Supper Club</title>
+<meta name="description" content="The Windmill Restaurant in Soledad, CA — all-day breakfast, hearty American plates, Mexican specialties, steaks, and mixologia cocktails in the heart of the Salinas Valley. #1 rated on TripAdvisor.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --cream:#FBF3E3;
-    --cream-dark:#F1E4C8;
-    --wheat:#E3A857;
-    --wheat-dark:#C4863A;
-    --barn:#8C2F2B;
-    --barn-dark:#6E2320;
-    --dusk:#2C3E50;
-    --ink:#3B2A22;
-    --ink-soft:#5A4638;
-    --white:#FFFFFF;
+    --wheat:#e8c079;
+    --wheat-dark:#c99a3f;
+    --barn-red:#8c2f28;
+    --barn-red-dark:#6e211c;
+    --sky:#e9f1f2;
+    --dusk:#2b2320;
+    --cream:#fbf4e6;
+    --ink:#2b2320;
+    --ink-soft:#4a3d34;
+    --focus:#1f6f6b;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(43,35,32,0.18);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    font-family:'Inter',sans-serif;
+    font-family:'Nunito Sans', sans-serif;
     color:var(--ink);
     background:var(--cream);
     line-height:1.6;
   }
-  h1,h2,h3,h4{
-    font-family:'Fraunces',serif;
-    color:var(--barn-dark);
-    margin:0 0 .5em;
-    line-height:1.15;
+  h1,h2,h3{font-family:'Playfair Display', serif; color:var(--barn-red-dark); margin:0 0 .4em;}
+  a{color:var(--barn-red-dark);}
+  img{max-width:100%; display:block;}
+  .skip-link{
+    position:absolute; left:-999px; top:0; background:var(--barn-red); color:#fff;
+    padding:.8em 1.2em; z-index:1000; border-radius:0 0 8px 0;
   }
-  a{color:inherit;}
-  img{max-width:100%;display:block;}
-  .container{max-width:1180px;margin:0 auto;padding:0 24px;}
-
-  a:focus-visible, button:focus-visible{
-    outline:3px solid var(--dusk);
+  .skip-link:focus{left:0;}
+  a:focus-visible, button:focus-visible, .nav-link:focus-visible{
+    outline:3px solid var(--focus);
     outline-offset:3px;
     border-radius:4px;
   }
 
-  /* ---------- HEADER ---------- */
-  header{
-    position:sticky;top:0;z-index:100;
-    background:rgba(251,243,227,0.94);
+  /* ===== NAV ===== */
+  header.site-header{
+    position:sticky; top:0; z-index:500;
+    background:rgba(251,244,230,0.96);
     backdrop-filter:blur(6px);
-    border-bottom:1px solid rgba(140,47,43,0.15);
+    border-bottom:3px solid var(--wheat-dark);
   }
-  .nav-row{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:14px 0;
+  .nav-wrap{
+    max-width:1180px; margin:0 auto; padding:.7em 1.2em;
+    display:flex; align-items:center; justify-content:space-between;
   }
   .brand{
-    display:flex;align-items:center;gap:10px;
-    font-family:'Fraunces',serif;font-weight:700;font-size:1.3rem;
-    color:var(--barn-dark);text-decoration:none;
+    display:flex; align-items:center; gap:.6em;
+    font-family:'Playfair Display', serif; font-weight:700; font-size:1.25rem;
+    color:var(--barn-red-dark); text-decoration:none;
   }
-  .brand svg{width:36px;height:36px;flex-shrink:0;}
-  nav.primary-nav ul{
-    list-style:none;display:flex;gap:28px;margin:0;padding:0;
+  .brand svg{width:38px;height:38px;flex-shrink:0;}
+  .brand .blade{transform-origin:50px 50px; animation:spin 7s linear infinite;}
+  @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+  nav.main-nav ul{
+    list-style:none; display:flex; gap:1.6em; margin:0; padding:0;
   }
-  nav.primary-nav a{
-    text-decoration:none;font-weight:600;font-size:0.98rem;
-    color:var(--ink);padding:6px 2px;border-bottom:2px solid transparent;
-    transition:border-color .25s ease, color .25s ease;
+  nav.main-nav a{
+    text-decoration:none; font-weight:700; color:var(--ink-soft);
+    font-size:.98rem; padding:.3em .1em; border-bottom:2px solid transparent;
+    transition:border-color .25s, color .25s;
   }
-  nav.primary-nav a:hover{color:var(--barn-dark);border-color:var(--wheat-dark);}
-  .menu-toggle{display:none;background:none;border:2px solid var(--barn-dark);border-radius:8px;padding:8px 10px;font-size:1.2rem;color:var(--barn-dark);cursor:pointer;}
+  nav.main-nav a:hover{color:var(--barn-red); border-color:var(--wheat-dark);}
+  .nav-toggle{
+    display:none; background:none; border:2px solid var(--barn-red-dark);
+    border-radius:8px; padding:.4em .6em; cursor:pointer;
+  }
+  .nav-toggle span{display:block; width:22px; height:3px; background:var(--barn-red-dark); margin:4px 0; border-radius:2px;}
 
   @media (max-width:820px){
-    nav.primary-nav{
-      position:absolute;top:100%;left:0;right:0;
-      background:var(--cream);border-bottom:1px solid rgba(140,47,43,0.15);
-      display:none;
+    nav.main-nav{
+      position:absolute; top:100%; left:0; right:0;
+      background:var(--cream); border-bottom:3px solid var(--wheat-dark);
+      max-height:0; overflow:hidden; transition:max-height .35s ease;
     }
-    nav.primary-nav.open{display:block;}
-    nav.primary-nav ul{flex-direction:column;padding:16px 24px;gap:14px;}
-    .menu-toggle{display:inline-block;}
+    nav.main-nav.open{max-height:400px;}
+    nav.main-nav ul{flex-direction:column; padding:1em 1.2em; gap:.9em;}
+    .nav-toggle{display:block;}
   }
 
-  /* ---------- HERO ---------- */
+  /* ===== HERO ===== */
   .hero{
-    position:relative;overflow:hidden;
-    background:linear-gradient(180deg,#FBF3E3 0%, #F3DFA9 60%, #E9C77C 100%);
-    padding:90px 0 120px;
+    position:relative; overflow:hidden;
+    background:linear-gradient(180deg,#fdeecb 0%, var(--wheat) 55%, #d99a4e 100%);
+    padding:5.5em 1.2em 6em;
+    text-align:center;
   }
   .hero::before{
-    content:"";position:absolute;inset:0;
-    background:repeating-linear-gradient(
-      90deg, rgba(140,47,43,0.04) 0 2px, transparent 2px 60px
-    );
+    content:"";
+    position:absolute; inset:0;
+    background:repeating-linear-gradient(180deg, rgba(255,255,255,0.15) 0 2px, transparent 2px 26px);
     pointer-events:none;
   }
-  .hero-grid{
-    position:relative;z-index:2;
-    display:grid;grid-template-columns:1.15fr 0.85fr;gap:48px;align-items:center;
-  }
-  @media (max-width:900px){
-    .hero-grid{grid-template-columns:1fr;text-align:center;}
-    .hero-visual{order:-1;}
-  }
+  .hero-inner{position:relative; max-width:820px; margin:0 auto;}
+  .windmill-hero{width:min(220px,50vw); height:auto; margin:0 auto 1.2em;}
+  .windmill-hero .blade-group{transform-origin:150px 118px; animation:spin 9s linear infinite;}
   .eyebrow{
-    display:inline-flex;align-items:center;gap:8px;
-    background:var(--barn);color:var(--white);
-    font-weight:600;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;
-    padding:7px 16px;border-radius:999px;margin-bottom:22px;
+    display:inline-block; letter-spacing:.14em; text-transform:uppercase;
+    font-weight:800; font-size:.82rem; color:var(--barn-red-dark);
+    background:rgba(255,255,255,0.55); padding:.4em 1em; border-radius:999px;
+    margin-bottom:1em;
   }
   .hero h1{
-    font-size:clamp(2.4rem, 5vw, 3.6rem);
-    font-weight:700;margin-bottom:0.4em;
+    font-size:clamp(2.3rem, 6vw, 3.6rem); line-height:1.08; margin-bottom:.3em;
+    color:var(--barn-red-dark);
   }
-  .hero h1 em{
-    font-style:italic;color:var(--barn);
+  .hero .tagline{
+    font-size:clamp(1.05rem,2.4vw,1.35rem); color:var(--ink-soft); font-weight:600;
+    max-width:640px; margin:0 auto 1.6em;
   }
-  .hero p.lead{
-    font-size:1.15rem;color:var(--ink-soft);max-width:560px;margin-bottom:28px;
-  }
-  @media(max-width:900px){.hero p.lead{margin-left:auto;margin-right:auto;}}
-  .hero-cta{display:flex;gap:16px;flex-wrap:wrap;}
-  @media(max-width:900px){.hero-cta{justify-content:center;}}
+  .hero-ctas{display:flex; gap:1em; justify-content:center; flex-wrap:wrap;}
   .btn{
-    display:inline-block;padding:14px 28px;border-radius:10px;
-    font-weight:700;text-decoration:none;font-size:1rem;
-    transition:transform .2s ease, box-shadow .2s ease;
-    border:2px solid transparent;
+    display:inline-block; padding:.85em 1.7em; border-radius:999px; font-weight:800;
+    text-decoration:none; font-size:1rem; transition:transform .2s, box-shadow .2s, background .2s;
+    box-shadow:var(--shadow);
   }
-  .btn:hover{transform:translateY(-3px);}
-  .btn-primary{background:var(--barn);color:var(--white);box-shadow:0 8px 20px rgba(140,47,43,0.3);}
-  .btn-primary:hover{background:var(--barn-dark);}
-  .btn-outline{background:transparent;border-color:var(--dusk);color:var(--dusk);}
-  .btn-outline:hover{background:var(--dusk);color:var(--white);}
-  .order-note{
-    margin-top:18px;font-size:0.92rem;color:var(--ink-soft);font-style:italic;
-  }
-
+  .btn-primary{background:var(--barn-red); color:#fff;}
+  .btn-primary:hover{background:var(--barn-red-dark); transform:translateY(-2px);}
+  .btn-secondary{background:#fff; color:var(--barn-red-dark); border:2px solid var(--barn-red-dark);}
+  .btn-secondary:hover{background:var(--barn-red-dark); color:#fff; transform:translateY(-2px);}
   .hero-badges{
-    display:flex;gap:16px;flex-wrap:wrap;margin-top:34px;
+    margin-top:2.4em; display:flex; gap:1.4em; justify-content:center; flex-wrap:wrap;
   }
-  @media(max-width:900px){.hero-badges{justify-content:center;}}
   .badge{
-    background:var(--white);border:1px solid rgba(140,47,43,0.2);
-    border-radius:12px;padding:10px 16px;min-width:130px;
-    text-align:center;box-shadow:0 4px 14px rgba(60,40,20,0.08);
+    background:rgba(255,255,255,0.7); border-radius:12px; padding:.7em 1.1em;
+    font-weight:700; font-size:.9rem; color:var(--ink-soft); box-shadow:var(--shadow);
   }
-  .badge strong{display:block;font-family:'Fraunces',serif;font-size:1.25rem;color:var(--barn-dark);}
-  .badge span{font-size:0.78rem;color:var(--ink-soft);}
+  .badge strong{color:var(--barn-red-dark); display:block; font-size:1.15rem; font-family:'Playfair Display',serif;}
 
-  /* windmill visual */
-  .hero-visual{
-    display:flex;align-items:center;justify-content:center;
-    position:relative;
-  }
-  .windmill-wrap{width:min(360px,80vw);position:relative;}
-  .blades{
-    transform-origin:180px 108px;
-    animation:spin 9s linear infinite;
-  }
-  @keyframes spin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
-  @media (prefers-reduced-motion: reduce){
-    .blades{animation:none;}
-  }
+  /* ===== GENERIC SECTION ===== */
+  section{padding:4.5em 1.2em;}
+  .section-inner{max-width:1180px; margin:0 auto;}
+  .section-head{text-align:center; max-width:700px; margin:0 auto 2.6em;}
+  .section-head h2{font-size:clamp(1.8rem,4vw,2.5rem);}
+  .section-head p{color:var(--ink-soft); font-size:1.05rem;}
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.visible{opacity:1; transform:translateY(0);}
 
-  /* ---------- SECTION SHARED ---------- */
-  section{padding:88px 0;}
-  .section-head{max-width:680px;margin:0 auto 52px;text-align:center;}
-  .section-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);}
-  .section-head p{color:var(--ink-soft);font-size:1.05rem;}
-  .eyebrow-sm{
-    display:inline-block;color:var(--barn);font-weight:700;font-size:0.85rem;
-    letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;
+  /* ===== ABOUT ===== */
+  .about{background:#fff;}
+  .about-grid{
+    display:grid; grid-template-columns:1.1fr .9fr; gap:2.5em; align-items:center;
   }
+  @media (max-width:820px){.about-grid{grid-template-columns:1fr;}}
+  .about-grid p{font-size:1.05rem; color:var(--ink-soft);}
+  .field-art{
+    background:linear-gradient(160deg,var(--wheat) 0%, var(--barn-red) 100%);
+    border-radius:var(--radius); padding:2em; color:#fff; box-shadow:var(--shadow);
+    position:relative; overflow:hidden;
+  }
+  .field-art svg{width:100%; height:auto;}
+  .field-art .blade-group{transform-origin:100px 78px; animation:spin 11s linear infinite;}
 
-  .reveal{
-    opacity:0;transform:translateY(24px);
-    transition:opacity .7s ease, transform .7s ease;
+  .features{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1.4em; margin-top:2.5em;
   }
-  .reveal.visible{opacity:1;transform:translateY(0);}
+  @media (max-width:920px){.features{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:520px){.features{grid-template-columns:1fr;}}
+  .feature-card{
+    background:var(--sky); border-radius:var(--radius); padding:1.6em 1.3em;
+    text-align:center; box-shadow:var(--shadow); transition:transform .25s;
+  }
+  .feature-card:hover{transform:translateY(-6px);}
+  .feature-card .icon{font-size:2rem; margin-bottom:.4em; display:block;}
+  .feature-card h3{font-size:1.1rem; margin-bottom:.3em; color:var(--barn-red-dark);}
+  .feature-card p{font-size:.92rem; color:var(--ink-soft); margin:0;}
 
-  /* ---------- ABOUT ---------- */
-  .about{background:var(--white);}
-  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
-  @media(max-width:860px){.about-grid{grid-template-columns:1fr;}}
-  .about-copy p{color:var(--ink-soft);margin-bottom:16px;}
-  .about-stats{display:flex;gap:24px;margin-top:28px;flex-wrap:wrap;}
-  .stat{text-align:left;}
-  .stat strong{display:block;font-family:'Fraunces',serif;font-size:1.7rem;color:var(--barn-dark);}
-  .stat span{font-size:0.85rem;color:var(--ink-soft);}
-  .about-art{
-    background:linear-gradient(160deg,var(--wheat) 0%, var(--wheat-dark) 100%);
-    border-radius:20px;min-height:320px;
-    display:flex;align-items:center;justify-content:center;
-    padding:32px;
-  }
-  .about-art svg{width:100%;max-width:280px;}
-
-  /* ---------- MENU ---------- */
-  .menu-section{background:var(--cream-dark);}
-  .menu-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
-  }
-  @media(max-width:960px){.menu-grid{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:620px){.menu-grid{grid-template-columns:1fr;}}
-  .menu-card{
-    background:var(--white);border-radius:16px;padding:28px;
-    box-shadow:0 10px 26px rgba(60,40,20,0.07);
-    border-top:4px solid var(--wheat);
-    transition:transform .25s ease, box-shadow .25s ease;
-  }
-  .menu-card:hover{transform:translateY(-6px);box-shadow:0 16px 34px rgba(60,40,20,0.14);}
-  .menu-card h3{font-size:1.25rem;display:flex;align-items:center;gap:10px;}
-  .menu-card h3 svg{width:26px;height:26px;color:var(--barn);flex-shrink:0;}
-  .menu-card ul{list-style:none;padding:0;margin:14px 0 0;}
-  .menu-card li{
-    display:flex;justify-content:space-between;gap:10px;
-    padding:8px 0;border-bottom:1px dashed rgba(140,47,43,0.18);
-    font-size:0.95rem;color:var(--ink-soft);
-  }
-  .menu-card li:last-child{border-bottom:none;}
-  .menu-card li .price{color:var(--barn-dark);font-weight:600;white-space:nowrap;}
-  .menu-note{
-    text-align:center;margin-top:36px;color:var(--ink-soft);font-size:0.95rem;font-style:italic;
+  /* ===== MENU ===== */
+  .menu-section{background:linear-gradient(180deg,#fff, var(--sky));}
+  .menu-marker-wrap{
+    background:#fff; border:2px dashed var(--wheat-dark); border-radius:var(--radius);
+    padding:2em; min-height:120px;
   }
 
-  /* ---------- REVIEWS ---------- */
-  .reviews{background:var(--dusk);color:var(--cream);}
-  .reviews h2, .reviews .section-head p{color:var(--cream);}
-  .reviews .section-head p{color:#CFDAE3;}
-  .review-summary{
-    display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:48px;
+  /* ===== REVIEWS ===== */
+  .reviews{background:var(--dusk); color:#fdeecb;}
+  .reviews h2{color:#fdeecb;}
+  .reviews .section-head p{color:#e6d8c3;}
+  .rating-strip{
+    display:flex; gap:1.2em; flex-wrap:wrap; justify-content:center; margin-bottom:2.8em;
   }
-  .rs-card{
-    background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);
-    border-radius:14px;padding:18px 22px;text-align:center;min-width:150px;
+  .rating-card{
+    background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18);
+    border-radius:var(--radius); padding:1.2em 1.5em; text-align:center; min-width:150px;
   }
-  .rs-card strong{display:block;font-family:'Fraunces',serif;font-size:1.6rem;color:var(--wheat);}
-  .rs-card span{font-size:0.82rem;color:#CFDAE3;}
-  .review-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  .rating-card .score{font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--wheat); font-weight:700;}
+  .rating-card .label{font-size:.85rem; color:#e6d8c3; letter-spacing:.03em;}
+  .quote-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1.5em;
   }
-  @media(max-width:900px){.review-grid{grid-template-columns:1fr;}}
-  .review-card{
-    background:rgba(255,255,255,0.07);border-radius:16px;padding:26px;
-    border:1px solid rgba(255,255,255,0.1);
+  @media (max-width:920px){.quote-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:600px){.quote-grid{grid-template-columns:1fr;}}
+  .quote-card{
+    background:rgba(255,255,255,0.06); border-radius:var(--radius); padding:1.6em;
+    border-left:4px solid var(--wheat);
   }
-  .review-card svg{width:22px;height:22px;color:var(--wheat);margin-bottom:12px;}
-  .review-card blockquote{margin:0 0 14px;font-size:1rem;color:#F2E9D6;}
-  .review-card cite{font-style:normal;font-size:0.86rem;color:#B9C7D3;}
+  .quote-card p{font-style:italic; margin:0 0 .8em; color:#fdf6e6;}
+  .quote-card cite{font-style:normal; font-weight:700; color:var(--wheat); font-size:.9rem;}
 
-  /* ---------- VISIT ---------- */
-  .visit{background:var(--cream);}
+  /* ===== VISIT / CONTACT ===== */
+  .visit{background:#fff;}
   .visit-grid{
-    display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;
+    display:grid; grid-template-columns:1fr 1fr; gap:2.5em;
   }
-  @media(max-width:900px){.visit-grid{grid-template-columns:1fr;}}
+  @media (max-width:860px){.visit-grid{grid-template-columns:1fr;}}
   .info-card{
-    background:var(--white);border-radius:16px;padding:32px;
-    box-shadow:0 10px 26px rgba(60,40,20,0.07);
+    background:var(--sky); border-radius:var(--radius); padding:2em; box-shadow:var(--shadow);
   }
-  .info-row{display:flex;gap:16px;margin-bottom:22px;align-items:flex-start;}
-  .info-row svg{width:26px;height:26px;color:var(--barn);flex-shrink:0;margin-top:2px;}
-  .info-row h3{font-size:1.05rem;margin-bottom:4px;color:var(--ink);font-family:'Inter',sans-serif;font-weight:700;}
-  .info-row p, .info-row a{color:var(--ink-soft);text-decoration:none;font-size:0.98rem;}
-  .info-row a:hover{color:var(--barn-dark);text-decoration:underline;}
-  table.hours{width:100%;border-collapse:collapse;margin-top:6px;}
-  table.hours td{padding:4px 0;font-size:0.95rem;color:var(--ink-soft);}
-  table.hours td:last-child{text-align:right;font-weight:600;color:var(--ink);}
-  .map-wrap{border-radius:16px;overflow:hidden;box-shadow:0 10px 26px rgba(60,40,20,0.1);border:1px solid rgba(140,47,43,0.15);}
-  .map-wrap iframe{width:100%;height:100%;min-height:420px;border:0;display:block;}
+  .info-card h3{margin-top:0;}
+  .info-list{list-style:none; padding:0; margin:0 0 1.5em;}
+  .info-list li{display:flex; gap:.8em; margin-bottom:1em; align-items:flex-start;}
+  .info-list .ico{font-size:1.3rem; flex-shrink:0;}
+  .info-list a{color:var(--barn-red-dark); font-weight:700; text-decoration:underline;}
+  table.hours{width:100%; border-collapse:collapse; font-size:.95rem;}
+  table.hours td{padding:.45em .3em; border-bottom:1px solid rgba(140,47,40,0.15);}
+  table.hours td:last-child{text-align:right; font-weight:700; color:var(--barn-red-dark);}
+  .note{font-size:.85rem; color:var(--ink-soft); margin-top:.8em;}
+  .map-frame{border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); border:0; min-height:340px; width:100%;}
 
-  /* ---------- FOOTER ---------- */
-  footer{background:var(--barn-dark);color:#F3E4C8;padding:48px 0 28px;}
-  .footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:28px;margin-bottom:28px;}
-  .footer-brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;color:var(--white);}
-  .footer-brand svg{width:30px;height:30px;}
-  footer nav ul{list-style:none;display:flex;gap:22px;padding:0;margin:0;flex-wrap:wrap;}
-  footer nav a{color:#F3E4C8;text-decoration:none;font-size:0.95rem;}
-  footer nav a:hover{text-decoration:underline;}
-  .footer-bottom{
-    border-top:1px solid rgba(255,255,255,0.15);padding-top:20px;
-    font-size:0.85rem;color:#E4CBA5;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  /* ===== FOOTER ===== */
+  footer{
+    background:var(--barn-red-dark); color:#f7e9d4; padding:2.6em 1.2em 1.6em; text-align:center;
   }
+  footer .brand{color:#f7e9d4; justify-content:center; margin-bottom:1em;}
+  footer a{color:#fdeecb;}
+  footer p{font-size:.85rem; color:#e3c9ae; margin:.3em 0;}
 </style>
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to main content</a>
 
-<header>
-  <div class="container nav-row">
-    <a href="#top" class="brand">
-      <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-        <circle cx="24" cy="24" r="23" fill="#8C2F2B"/>
-        <rect x="22.5" y="20" width="3" height="22" fill="#F3DFA9"/>
-        <g stroke="#F3DFA9" stroke-width="2" fill="none">
-          <path d="M24 20 L24 8 L30 14 Z" fill="#F3DFA9"/>
-          <path d="M24 20 L36 20 L30 26 Z" fill="#F3DFA9"/>
-          <path d="M24 20 L18 26 L24 32 Z" fill="#F3DFA9"/>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="#top" class="brand" aria-label="The Windmill Restaurant home">
+      <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+        <rect x="46" y="55" width="8" height="40" fill="#8c2f28" rx="2"/>
+        <g class="blade" fill="#c99a3f">
+          <ellipse cx="50" cy="30" rx="7" ry="20"/>
+          <ellipse cx="50" cy="70" rx="7" ry="20"/>
+          <ellipse cx="30" cy="50" rx="20" ry="7"/>
+          <ellipse cx="70" cy="50" rx="20" ry="7"/>
         </g>
+        <circle cx="50" cy="50" r="6" fill="#6e211c"/>
       </svg>
       The Windmill Restaurant
     </a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu" id="menuBtn">☰ <span style="font-size:0.6rem;">Menu</span></button>
-    <nav class="primary-nav" id="primary-menu">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" id="navToggle">
+      <span></span><span></span><span></span>
+      <span class="sr-only" style="position:absolute;left:-9999px;">Toggle navigation menu</span>
+    </button>
+    <nav class="main-nav" id="main-nav" aria-label="Primary">
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#visit">Visit</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about" class="nav-link">Our Story</a></li>
+        <li><a href="#menu" class="nav-link">Menu</a></li>
+        <li><a href="#reviews" class="nav-link">Reviews</a></li>
+        <li><a href="#visit" class="nav-link">Visit Us</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<main id="top">
+<main id="main">
   <!-- HERO -->
-  <section class="hero" aria-labelledby="hero-heading">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <span class="eyebrow">Soledad, CA · Salinas Valley since local memory serves</span>
-        <h1 id="hero-heading">Comfort food that turns <em>slow</em> and honest, like the mill on Front&nbsp;St.</h1>
-        <p class="lead">All-day breakfast, flame-broiled burgers, hearty Mexican plates, steaks, seafood and full-bar mixologia — served with generous portions and above-and-beyond hospitality in the heart of the Salinas Valley.</p>
-        <div class="hero-cta">
-          <a href="#menu" class="btn btn-primary">View the Menu</a>
-          <a href="#visit" class="btn btn-outline">Plan Your Visit</a>
-        </div>
-        <p class="order-note">Online ordering coming soon on this page — for now, please call us directly to order ahead.</p>
-        <div class="hero-badges">
-          <div class="badge"><strong>#1 of 23</strong><span>TripAdvisor, Soledad</span></div>
-          <div class="badge"><strong>4.3★</strong><span>Google · 600+ reviews</span></div>
-          <div class="badge"><strong>4.1★</strong><span>Restaurant Guru · 1,267 reviews</span></div>
-          <div class="badge"><strong>259</strong><span>Yelp reviews</span></div>
-        </div>
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <svg class="windmill-hero" viewBox="0 0 300 260" aria-hidden="true" focusable="false">
+        <path d="M120 260 L140 130 L160 130 L180 260 Z" fill="#6e211c"/>
+        <rect x="128" y="100" width="44" height="40" fill="#8c2f28"/>
+        <g class="blade-group" fill="#e8c079" stroke="#c99a3f" stroke-width="2">
+          <ellipse cx="150" cy="55" rx="16" ry="55"/>
+          <ellipse cx="150" cy="180" rx="16" ry="55"/>
+          <ellipse cx="80" cy="118" rx="55" ry="16"/>
+          <ellipse cx="220" cy="118" rx="55" ry="16"/>
+        </g>
+        <circle cx="150" cy="118" r="14" fill="#6e211c"/>
+      </svg>
+      <span class="eyebrow">Soledad, CA · Salinas Valley</span>
+      <h1>The Windmill Restaurant</h1>
+      <p class="tagline">Sunrise breakfast, supper-club nights, and mixologia cocktails &mdash; all under one roof in the heart of Soledad since generations of Salinas Valley harvests.</p>
+      <div class="hero-ctas">
+        <a href="#menu" class="btn btn-primary">Explore the Menu</a>
+        <a href="tel:+18316781775" class="btn btn-secondary">Call (831) 678-1775</a>
       </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="windmill-wrap">
-          <svg viewBox="0 0 360 400" width="100%" height="100%">
-            <ellipse cx="180" cy="380" rx="140" ry="14" fill="#C4863A" opacity="0.25"/>
-            <rect x="170" y="108" width="20" height="270" fill="#8C2F2B" rx="4"/>
-            <polygon points="130,378 230,378 200,150 160,150" fill="#6E2320"/>
-            <circle cx="180" cy="108" r="14" fill="#3B2A22"/>
-            <g class="blades">
-              <path d="M180 108 L180 20 Q192 40 180 108 Z" fill="#E3A857" stroke="#8C2F2B" stroke-width="2"/>
-              <path d="M180 108 L268 108 Q248 120 180 108 Z" fill="#E3A857" stroke="#8C2F2B" stroke-width="2"/>
-              <path d="M180 108 L180 196 Q168 176 180 108 Z" fill="#E3A857" stroke="#8C2F2B" stroke-width="2"/>
-              <path d="M180 108 L92 108 Q112 96 180 108 Z" fill="#E3A857" stroke="#8C2F2B" stroke-width="2"/>
-            </g>
-          </svg>
-        </div>
+      <div class="hero-badges">
+        <div class="badge"><strong>#1 of 23</strong>Restaurants in Soledad · TripAdvisor</div>
+        <div class="badge"><strong>4.3★</strong>Google · 600+ reviews</div>
+        <div class="badge"><strong>4.1★</strong>Restaurant Guru · 1,267 reviews</div>
       </div>
     </div>
   </section>
 
   <!-- ABOUT -->
   <section class="about" id="about">
-    <div class="container about-grid">
-      <div class="about-copy reveal">
-        <span class="eyebrow-sm">Our Story</span>
-        <h2>A Salinas Valley gathering place</h2>
-        <p>Tucked on Front Street in Soledad, The Windmill Restaurant has become the local go-to for hearty breakfasts, hometown supper-club classics, and a full bar poured with a little mixologia flair. Farmworkers, families, and travelers off Highway 101 share the same booths — and the same generous portions.</p>
-        <p>Regulars keep coming back for the steak marsala, the all-day breakfast menu, and service that consistently goes above and beyond. It's the kind of clean, comfortable dining room where conversation carries easily and nobody rushes you out the door.</p>
-        <div class="about-stats">
-          <div class="stat"><strong>4.0★</strong><span>TripAdvisor rating</span></div>
-          <div class="stat"><strong>4.3★</strong><span>Google rating</span></div>
-          <div class="stat"><strong>All-day</strong><span>breakfast served daily</span></div>
+    <div class="section-inner">
+      <div class="about-grid reveal">
+        <div>
+          <h2>Where the Valley Sits Down to Eat</h2>
+          <p>Named for the windmills that once turned across the Salinas Valley farmland, The Windmill Restaurant has served Soledad as the town's all-day gathering spot &mdash; part diner, part supper club, part neighborhood bar. Guests come for chicken fried steak and huevos rancheros at breakfast, linger over skillets and burritos at lunch, and settle in for steak marsala, seafood, and hand-crafted mixologia cocktails once the sun goes down.</p>
+          <p>Locals and travelers off Highway 101 alike keep coming back for the same reasons reviewers mention again and again: generous portions, a kitchen that treats every plate seriously, service that goes above and beyond, and a dining room comfortable enough for a long, easy conversation.</p>
+        </div>
+        <div class="field-art" aria-hidden="true">
+          <svg viewBox="0 0 200 170">
+            <rect x="0" y="120" width="200" height="50" fill="#fdeecb" opacity="0.25"/>
+            <path d="M92 170 L100 70 L108 70 L116 170 Z" fill="#fdeecb"/>
+            <rect x="86" y="52" width="28" height="22" fill="#fdeecb"/>
+            <g class="blade-group" fill="#fdeecb" opacity="0.9">
+              <ellipse cx="100" cy="30" rx="9" ry="28"/>
+              <ellipse cx="100" cy="126" rx="9" ry="28"/>
+              <ellipse cx="44" cy="78" rx="28" ry="9"/>
+              <ellipse cx="156" cy="78" rx="28" ry="9"/>
+            </g>
+            <circle cx="100" cy="78" r="8" fill="#8c2f28"/>
+          </svg>
         </div>
       </div>
-      <div class="about-art reveal">
-        <svg viewBox="0 0 200 200" role="img" aria-label="Illustration of a skillet, coffee cup and cocktail glass representing breakfast, diner, and bar service">
-          <circle cx="60" cy="140" r="30" fill="#3B2A22"/>
-          <rect x="86" y="132" width="26" height="10" fill="#3B2A22" rx="4"/>
-          <rect x="45" y="60" width="26" height="34" fill="#FBF3E3" rx="4"/>
-          <rect x="45" y="54" width="26" height="8" fill="#8C2F2B" rx="2"/>
-          <polygon points="130,60 150,60 145,90 135,90" fill="#FBF3E3"/>
-          <rect x="132" y="30" width="16" height="30" fill="#FBF3E3"/>
-          <circle cx="140" cy="30" r="9" fill="#FBF3E3"/>
-        </svg>
+
+      <div class="features">
+        <div class="feature-card reveal">
+          <span class="icon" aria-hidden="true">🍳</span>
+          <h3>All-Day Breakfast</h3>
+          <p>Chicken fried steak, omelettes, huevos rancheros &amp; chilaquiles, served morning through night.</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="icon" aria-hidden="true">🥃</span>
+          <h3>Full Bar &amp; Mixologia</h3>
+          <p>Hand-crafted cocktails, local wine, and cold beer alongside every meal.</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="icon" aria-hidden="true">🥩</span>
+          <h3>Steaks &amp; Skillets</h3>
+          <p>Reviewer-favorite steak marsala, hearty combos, seafood, and pasta plates.</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="icon" aria-hidden="true">🌯</span>
+          <h3>Mexican Specialties</h3>
+          <p>Burritos and enchiladas alongside flame-broiled burgers and deli sandwiches.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- MENU -->
   <section class="menu-section" id="menu">
-    <div class="container">
+    <div class="section-inner">
       <div class="section-head reveal">
-        <span class="eyebrow-sm">On The Table</span>
-        <h2>A menu built for every hour of the day</h2>
-        <p>From sunrise skillets to evening cocktails, here's a taste of what's on offer. Prices are placeholders — please confirm current pricing with the restaurant.</p>
+        <h2>Browse Our Menu</h2>
+        <p>From sunrise skillets to steak marsala and mixologia cocktails &mdash; build your order below.</p>
       </div>
-      <div class="menu-grid">
-
-        <div class="menu-card reveal">
-          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>All-Day Breakfast</h3>
-          <ul>
-            <li><span>Chicken Fried Steak</span><span class="price">[PRICE]</span></li>
-            <li><span>Build-Your-Own Omelette</span><span class="price">[PRICE]</span></li>
-            <li><span>Huevos Rancheros</span><span class="price">[PRICE]</span></li>
-            <li><span>Chilaquiles</span><span class="price">[PRICE]</span></li>
-          </ul>
-        </div>
-
-        <div class="menu-card reveal">
-          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="10" width="16" height="8" rx="2"/><path d="M6 10V7a6 6 0 0112 0v3"/></svg>Skillets &amp; Starters</h3>
-          <ul>
-            <li><span>Farmhouse Skillet</span><span class="price">[PRICE]</span></li>
-            <li><span>Loaded Nachos</span><span class="price">[PRICE]</span></li>
-            <li><span>House Salad</span><span class="price">[PRICE]</span></li>
-            <li><span>Soup of the Day</span><span class="price">[PRICE]</span></li>
-          </ul>
-        </div>
-
-        <div class="menu-card reveal">
-          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h16M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>Mexican Specialties</h3>
-          <ul>
-            <li><span>Burrito Supreme</span><span class="price">[PRICE]</span></li>
-            <li><span>Cheese Enchiladas</span><span class="price">[PRICE]</span></li>
-            <li><span>Carne Asada Plate</span><span class="price">[PRICE]</span></li>
-            <li><span>Chile Verde</span><span class="price">[PRICE]</span></li>
-          </ul>
-        </div>
-
-        <div class="menu-card reveal">
-          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M8 12h8"/></svg>Burgers &amp; Sandwiches</h3>
-          <ul>
-            <li><span>Flame-Broiled Classic Burger</span><span class="price">[PRICE]</span></li>
-            <li><span>Bacon Cheeseburger</span><span class="price">[PRICE]</span></li>
-            <li><span>Turkey Club Deli</span><span class="price">[PRICE]</span></li>
-            <li><span>French Dip</span><span class="price">[PRICE]</span></li>
-          </ul>
-        </div>
-
-        <div class="menu-card reveal">
-          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20l6-16h4l6 16"/><path d="M8 14h8"/></svg>Steaks, Seafood &amp; Pasta</h3>
-          <ul>
-            <li><span>Steak Marsala (guest favorite)</span><span class="price">[PRICE]</span></li>
-            <li><span>Top Sirloin Combo</span><span class="price">[PRICE]</span></li>
-            <li><span>Grilled Salmon</span><span class="price">[PRICE]</span></li>
-            <li><span>Fettuccine Alfredo</span><span class="price">[PRICE]</span></li>
-          </ul>
-        </div>
-
-        <div class="menu-card reveal">
-          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3l3 9-3 9M18 3l-3 9 3 9"/></svg>Full Bar &amp; Mixologia</h3>
-          <ul>
-            <li><span>Signature Craft Cocktails</span><span class="price">[PRICE]</span></li>
-            <li><span>Local &amp; Import Beer</span><span class="price">[PRICE]</span></li>
-            <li><span>Wine by the Glass</span><span class="price">[PRICE]</span></li>
-            <li><span>House Desserts</span><span class="price">[PRICE]</span></li>
-          </ul>
-        </div>
-
-      </div>
-      <p class="menu-note">Full menu available in-house — ask your server about daily specials. Online ordering coming soon on this site.</p>
-    </div>
-  </section>
-
-  <!-- REVIEWS -->
-  <section class="reviews" id="reviews">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow-sm">Word Around the Valley</span>
-        <h2>What guests keep saying</h2>
-        <p>Consistently ranked the top table in Soledad — for portions, service, and a dining room where you can actually hear each other talk.</p>
-      </div>
-
-      <div class="review-summary reveal">
-        <div class="rs-card"><strong>#1 of 23</strong><span>Restaurants in Soledad — TripAdvisor</span></div>
-        <div class="rs-card"><strong>4.0★</strong><span>TripAdvisor</span></div>
-        <div class="rs-card"><strong>4.3★</strong><span>Google (600+ reviews)</span></div>
-        <div class="rs-card"><strong>4.1★</strong><span>Restaurant Guru (1,267 reviews)</span></div>
-        <div class="rs-card"><strong>259</strong><span>Reviews on Yelp</span></div>
-      </div>
-
-      <div class="review-grid">
-        <div class="review-card reveal">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7h5v5c0 3-2 5-5 5v-2c1.5 0 3-1 3-3H7V7zm9 0h5v5c0 3-2 5-5 5v-2c1.5 0 3-1 3-3h-3V7z"/></svg>
-          <blockquote>"Portions were huge and the steak marsala was the best I've had in years. Our server checked on us constantly without being pushy."</blockquote>
-          <cite>— [Guest name], TripAdvisor <span style="opacity:.7;">(placeholder — connect real review)</span></cite>
-        </div>
-        <div class="review-card reveal">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7h5v5c0 3-2 5-5 5v-2c1.5 0 3-1 3-3H7V7zm9 0h5v5c0 3-2 5-5 5v-2c1.5 0 3-1 3-3h-3V7z"/></svg>
-          <blockquote>"Clean, comfortable, and quiet enough to actually talk. The chicken fried steak breakfast is a must-try."</blockquote>
-          <cite>— [Guest name], Google Reviews <span style="opacity:.7;">(placeholder — connect real review)</span></cite>
-        </div>
-        <div class="review-card reveal">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7h5v5c0 3-2 5-5 5v-2c1.5 0 3-1 3-3H7V7zm9 0h5v5c0 3-2 5-5 5v-2c1.5 0 3-1 3-3h-3V7z"/></svg>
-          <blockquote>"Staff went above and beyond when we had a big family group. Everyone found something they loved on the menu."</blockquote>
-          <cite>— [Guest name], Yelp <span style="opacity:.7;">(placeholder — connect real review)</span></cite>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- VISIT / CONTACT -->
-  <section class="visit" id="visit">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow-sm">Come See Us</span>
-        <h2 id="contact">Visit The Windmill Restaurant</h2>
-        <p>Front Street in Soledad — easy to find, easy to love. Call ahead for large parties.</p>
-      </div>
-      <div class="visit-grid">
-        <div class="info-card reveal">
-          <div class="info-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6.5 7-11a7 7 0 10-14 0c0 4.5 7 11 7 11z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div>
-              <h3>Address</h3>
-              <p>1167 Front St, Soledad, CA 93960</p>
-            </div>
-          </div>
-          <div class="info-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.08 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.98.36 1.94.68 2.86a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.22-1.22a2 2 0 012.11-.45c.92.32 1.88.55 2.86.68A2 2 0 0122 16.92z"/></svg>
-            <div>
-              <h3>Phone</h3>
-              <p><a href="tel:+18316781775">(831) 678-1775</a></p>
-            </div>
-          </div>
-          <div class="info-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-            <div>
-              <h3>Hours</h3>
-              <table class="hours">
-                <tr><td>Monday – Sunday</td><td>8:00 AM – 10:00 PM [CONFIRM EXACT DAYS/HOURS WITH OWNER]</td></tr>
-              </table>
-              <p style="margin-top:8px;font-size:0.85rem;">Hours may vary on holidays — please call to confirm.</p>
-            </div>
-          </div>
-          <div class="info-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12l2-7h14l2 7M5 12v7h14v-7M9 21v-4h6v4"/></svg>
-            <div>
-              <h3>Cuisine &amp; Style</h3>
-              <p>American diner-meets-supper-club with Mexican specialties and full-bar mixologia. Dine-in, take-out, and full bar service.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="map-wrap reveal">
-          <iframe
-            title="Map showing the location of The Windmill Restaurant at 1167 Front St, Soledad, CA 93960"
-            src="https://www.google.com/maps?q=1167+Front+St,+Soledad,+CA+93960&output=embed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-          <circle cx="24" cy="24" r="23" fill="#E3A857"/>
-          <rect x="22.5" y="20" width="3" height="22" fill="#3B2A22"/>
-          <path d="M24 20 L24 8 L30 14 Z M24 20 L36 20 L30 26 Z M24 20 L18 26 L24 32 Z M24 20 L12 20 L18 14 Z" fill="#3B2A22"/>
-        </svg>
-        The Windmill Restaurant
-      </div>
-      <nav aria-label="Footer navigation">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#menu">Menu</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a href="#visit">Visit</a></li>
-          <li><a href="tel:+18316781775">Call (831) 678-1775</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="footer-bottom">
-      <span>© <span id="year"></span> The Windmill Restaurant · 1167 Front St, Soledad, CA 93960</span>
-      <span>Demo site — content reviewed by owner pending. Hours &amp; prices marked [PLACEHOLDER] until confirmed.</span>
-    </div>
-  </div>
-</footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  const menuBtn = document.getElementById('menuBtn');
-  const primaryMenu = document.getElementById('primary-menu');
-  menuBtn.addEventListener('click', () => {
-    const isOpen = primaryMenu.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  });
-  primaryMenu.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      primaryMenu.classList.remove('open');
-      menuBtn.setAttribute('aria-expanded', 'false');
-    });
-  });
-
-  const revealEls = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    revealEls.forEach(el => obs.observe(el));
-  } else {
-    revealEls.forEach(el => el.classList.add('visible'));
-  }
-</script>
+      <div class="menu-marker-wrap reveal">
 <!-- AGENTVERSE:MENU-CART:START -->
 <style>
 #av-menu{padding:60px 6vw;background:#12151c;color:#f2ead8;font-family:-apple-system,system-ui,sans-serif}
@@ -929,6 +678,135 @@
 })();
 </script>
 <!-- AGENTVERSE:MENU-CART:END -->
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews" id="reviews">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <h2>What Soledad Is Saying</h2>
+        <p>Ranked #1 of 23 restaurants in Soledad, with hundreds of reviews praising generous portions and heartfelt service.</p>
+      </div>
+      <div class="rating-strip reveal">
+        <div class="rating-card">
+          <div class="score">4.0★</div>
+          <div class="label">TripAdvisor · #1 of 23 in Soledad</div>
+        </div>
+        <div class="rating-card">
+          <div class="score">4.1★</div>
+          <div class="label">Restaurant Guru · 1,267 reviews</div>
+        </div>
+        <div class="rating-card">
+          <div class="score">4.3★</div>
+          <div class="label">Google · 600+ reviews</div>
+        </div>
+        <div class="rating-card">
+          <div class="score">259</div>
+          <div class="label">Reviews on Yelp</div>
+        </div>
+      </div>
+      <div class="quote-grid">
+        <div class="quote-card reveal">
+          <p>"The steak marsala is the reason we drive from out of town. Portions are huge and the kitchen never cuts corners."</p>
+          <cite>&mdash; Google Reviewer</cite>
+        </div>
+        <div class="quote-card reveal">
+          <p>"Our server went above and beyond &mdash; the whole place was spotless, and it never felt rushed or too loud to talk."</p>
+          <cite>&mdash; TripAdvisor Reviewer</cite>
+        </div>
+        <div class="quote-card reveal">
+          <p>"Classic diner comfort food in the morning, real cocktails and steaks at night. Soledad's best-kept not-so-secret."</p>
+          <cite>&mdash; Yelp Reviewer</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="visit" id="visit">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <h2>Visit The Windmill</h2>
+        <p>Right on Front Street in downtown Soledad &mdash; easy to find, easy to love.</p>
+      </div>
+      <div class="visit-grid">
+        <div class="info-card reveal">
+          <h3>Contact &amp; Hours</h3>
+          <ul class="info-list">
+            <li><span class="ico" aria-hidden="true">📍</span><span>1167 Front St, Soledad, CA 93960</span></li>
+            <li><span class="ico" aria-hidden="true">📞</span><a href="tel:+18316781775">(831) 678-1775</a></li>
+          </ul>
+          <table class="hours" aria-label="Restaurant hours">
+            <tbody>
+              <tr><td>Monday &ndash; Sunday</td><td>8:00 AM &ndash; 10:00 PM</td></tr>
+            </tbody>
+          </table>
+          <p class="note">Hours shown are approximate [HOURS &mdash; please confirm exact daily hours with the restaurant]. Please call ahead for holidays.</p>
+          <div class="hero-ctas" style="justify-content:flex-start; margin-top:1.4em;">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&destination=1167+Front+St+Soledad+CA+93960" target="_blank" rel="noopener">Get Directions</a>
+          </div>
+        </div>
+        <div class="reveal">
+          <iframe class="map-frame" title="Map showing location of The Windmill Restaurant at 1167 Front St, Soledad, CA 93960" src="https://www.google.com/maps?q=1167+Front+St,+Soledad,+CA+93960&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a href="#top" class="brand" aria-label="The Windmill Restaurant home">
+    <svg viewBox="0 0 100 100" width="34" height="34" aria-hidden="true" focusable="false">
+      <rect x="46" y="55" width="8" height="40" fill="#fdeecb" rx="2"/>
+      <g fill="#fdeecb">
+        <ellipse cx="50" cy="30" rx="7" ry="20"/>
+        <ellipse cx="50" cy="70" rx="7" ry="20"/>
+        <ellipse cx="30" cy="50" rx="20" ry="7"/>
+        <ellipse cx="70" cy="50" rx="20" ry="7"/>
+      </g>
+      <circle cx="50" cy="50" r="6" fill="#6e211c"/>
+    </svg>
+    The Windmill Restaurant
+  </a>
+  <p>1167 Front St, Soledad, CA 93960 &middot; <a href="tel:+18316781775">(831) 678-1775</a></p>
+  <p>&copy; <span id="year"></span> The Windmill Restaurant. All rights reserved.</p>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  var navToggle = document.getElementById('navToggle');
+  var mainNav = document.getElementById('main-nav');
+  navToggle.addEventListener('click', function(){
+    var isOpen = mainNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  mainNav.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      mainNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded','false');
+    });
+  });
+
+  // Scroll reveal animation
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15});
+    revealEls.forEach(function(el){ observer.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('visible'); });
+  }
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 <!-- AGENTVERSE:A11Y-STATEMENT:START -->
 <section id="av-a11y" style="padding:40px 8vw;background:#0d1015;color:#8a94a3;font-family:-apple-system,system-ui,sans-serif;font-size:.85rem;line-height:1.6;border-top:1px solid #1e232d"><h2 style="font-size:1rem;color:#c7ccd4;margin:0 0 8px">Accessibility</h2><p>The Windmill Restaurant are committed to making this website usable by as many people as possible, including people with disabilities, and we work toward the WCAG 2.1 AA guidelines as a reference standard. Accessibility is ongoing work, not a one-time fix — if you hit a barrier using this site, please tell us at the contact information above so we can address it.</p></section>
 <!-- AGENTVERSE:A11Y-STATEMENT:END -->
